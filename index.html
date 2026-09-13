@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-<meta name="google-adsense-account" content="ca-pub-7100289179687225">
-<meta name="google-site-verification" content="rcQSqKklKPqytBCxTDOceZ8RgSiANwoQni1MDtuc9_g" />
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>A-Z Arcade - Typing, Memory, Reaction, Math &amp; Puzzles</title>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#00d4ff">
+<link rel="icon" type="image/png" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <style>
 :root{--bg-dark:#0a0a0f;--bg-card:rgba(20,20,35,0.85);--bg-glass:rgba(255,255,255,0.05);--accent:#00d4ff;--accent-glow:rgba(0,212,255,0.4);--accent2:#7c3aed;--success:#00e676;--error:#ff1744;--warning:#ff9100;--text:#ffffff;--text-dim:rgba(255,255,255,0.6);--border:rgba(255,255,255,0.1);}
@@ -41,11 +43,42 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 .mode-name{font-weight:600;font-size:0.85rem;}
 .mode-desc{font-size:0.7rem;color:var(--text-dim);margin-top:2px;}
 .hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;}
-.hub-card{background:var(--bg-glass);border:1px solid var(--border);border-radius:18px;padding:22px 10px;text-align:center;cursor:pointer;transition:all 0.3s ease;}
-.hub-card:hover,.hub-card:active{border-color:var(--accent);background:rgba(0,212,255,0.1);transform:translateY(-2px);}
-.hub-icon{font-size:2.2rem;margin-bottom:8px;}
+.hub-card{background:var(--bg-glass);border:1px solid var(--border);border-radius:18px;padding:22px 10px;text-align:center;cursor:pointer;transition:all 0.25s ease;position:relative;overflow:hidden;animation:cardPop 0.5s ease backwards;}
+.hub-card:hover,.hub-card:active{border-color:var(--cat-color,var(--accent));background:rgba(0,212,255,0.1);transform:translateY(-3px) scale(1.02);box-shadow:0 8px 24px var(--cat-glow,rgba(0,212,255,0.25));}
+.hub-card:hover .hub-icon{transform:scale(1.15);filter:drop-shadow(0 0 10px var(--cat-glow,rgba(0,212,255,0.6)));}
+.hub-grid .hub-card:nth-child(1){animation-delay:0.03s;}
+.hub-grid .hub-card:nth-child(2){animation-delay:0.08s;}
+.hub-grid .hub-card:nth-child(3){animation-delay:0.13s;}
+.hub-grid .hub-card:nth-child(4){animation-delay:0.18s;}
+.hub-grid .hub-card:nth-child(5){animation-delay:0.23s;}
+@keyframes cardPop{0%{opacity:0;transform:translateY(14px) scale(0.96);}100%{opacity:1;transform:translateY(0) scale(1);}}
+.hub-icon{font-size:2.2rem;margin-bottom:8px;transition:all 0.25s ease;}
 .hub-name{font-weight:700;font-size:0.9rem;}
 .hub-desc{font-size:0.7rem;color:var(--text-dim);margin-top:2px;}
+.hub-grid[data-cat="skill"]{--cat-color:#00d4ff;--cat-glow:rgba(0,212,255,0.35);}
+.hub-grid[data-cat="brain"]{--cat-color:#7c3aed;--cat-glow:rgba(124,58,237,0.35);}
+.hub-grid[data-cat="puzzle"]{--cat-color:#ff6ec7;--cat-glow:rgba(255,110,199,0.35);}
+.hub-grid[data-cat="arcade"]{--cat-color:#00e676;--cat-glow:rgba(0,230,118,0.35);}
+.hub-grid[data-cat="knowledge"]{--cat-color:#ffd700;--cat-glow:rgba(255,215,0,0.35);}
+.hub-grid[data-cat] .hub-card{border-top:2px solid var(--cat-color);}
+.level-badge-mini{position:absolute;top:8px;right:8px;background:linear-gradient(135deg,#ffd700,#ff9100);color:#000;font-size:0.52rem;font-weight:800;padding:2px 6px;border-radius:8px;letter-spacing:0.2px;box-shadow:0 2px 8px rgba(255,145,0,0.4);}
+.feature-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px;}
+.feature-badge{background:var(--bg-glass);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:0.72rem;color:var(--text-dim);white-space:nowrap;}
+.category-tagline{color:var(--text-dim);font-size:0.75rem;margin:-8px 4px 12px;}
+@keyframes ctaPulse{0%,100%{box-shadow:0 4px 20px rgba(0,212,255,0.3);}50%{box-shadow:0 4px 30px rgba(0,212,255,0.65);}}
+.hero-buttons .btn-primary{animation:ctaPulse 2.2s ease infinite;}
+.hero-title{font-family:'Orbitron',sans-serif;font-weight:900;font-size:2rem;background:linear-gradient(135deg,var(--accent),var(--accent2),var(--accent));background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;animation:gradientShift 3s ease infinite;}
+.hero-tagline{color:var(--text);font-weight:600;font-size:1rem;margin-bottom:10px;letter-spacing:0.5px;}
+.hero-desc{color:var(--text-dim);font-size:0.85rem;line-height:1.5;margin-bottom:20px;max-width:340px;margin-left:auto;margin-right:auto;}
+.hero-buttons{display:flex;flex-direction:column;gap:10px;}
+.category-title{font-family:'Orbitron',sans-serif;font-size:0.95rem;font-weight:700;color:var(--accent);letter-spacing:0.5px;margin:22px 4px 12px;text-transform:uppercase;}
+.site-footer{text-align:center;padding:24px 10px 10px;margin-top:8px;border-top:1px solid var(--border);}
+.footer-title{font-family:'Orbitron',sans-serif;font-weight:700;font-size:1rem;color:var(--text);}
+.footer-tagline{color:var(--text-dim);font-size:0.78rem;margin-top:2px;}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:16px 0 10px;}
+.footer-links span{color:var(--text-dim);font-size:0.8rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+.footer-links span:hover{color:var(--accent);}
+.footer-copy{color:var(--text-dim);font-size:0.72rem;opacity:0.8;}
 .input-field{width:100%;padding:16px 20px;border:2px solid var(--border);border-radius:16px;background:var(--bg-glass);color:var(--text);font-family:'Poppins',sans-serif;font-size:1.1rem;text-align:center;outline:none;transition:all 0.3s ease;margin-bottom:16px;}
 .input-field:focus{border-color:var(--accent);box-shadow:0 0 20px var(--accent-glow);}
 .input-field::placeholder{color:var(--text-dim);}
@@ -178,6 +211,39 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 .trivia-option{background:var(--bg-glass);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:left;cursor:pointer;margin-bottom:10px;transition:all 0.2s ease;}
 .trivia-option.correct{background:rgba(0,230,118,0.18);border-color:var(--success);}
 .trivia-option.wrong{background:rgba(255,23,68,0.18);border-color:var(--error);}
+.wordle-grid{display:grid;grid-template-rows:repeat(6,1fr);gap:6px;max-width:280px;margin:16px auto;}
+.wordle-row{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+.wordle-cell{aspect-ratio:1;border:2px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-weight:700;font-size:1.3rem;text-transform:uppercase;background:var(--bg-glass);}
+.wordle-cell.correct{background:var(--success);border-color:var(--success);color:#000;}
+.wordle-cell.present{background:var(--warning);border-color:var(--warning);color:#000;}
+.wordle-cell.absent{background:rgba(255,255,255,0.08);border-color:var(--border);color:var(--text-dim);}
+.mini-keyboard{display:flex;flex-direction:column;gap:6px;margin-top:16px;}
+.mini-keyboard-row{display:flex;justify-content:center;gap:5px;}
+.mini-key{background:var(--bg-glass);border:1px solid var(--border);border-radius:8px;padding:10px 0;flex:1;max-width:34px;text-align:center;font-weight:700;font-size:0.8rem;cursor:pointer;}
+.mini-key.wide{max-width:56px;font-size:0.65rem;}
+.mini-key.used-correct{background:var(--success);color:#000;}
+.mini-key.used-present{background:var(--warning);color:#000;}
+.mini-key.used-absent{opacity:0.3;}
+.hangman-word{font-family:'Orbitron',sans-serif;font-size:1.8rem;font-weight:700;letter-spacing:8px;text-align:center;margin:20px 0;color:var(--text);}
+.hangman-letters{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:16px;}
+.minesweeper-grid{display:grid;gap:3px;margin:12px 0;}
+.mine-cell{aspect-ratio:1;background:var(--bg-glass);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;cursor:pointer;user-select:none;}
+.mine-cell.revealed{background:rgba(255,255,255,0.03);cursor:default;}
+.mine-cell.flagged{background:rgba(255,145,0,0.2);}
+.mine-cell.mine-hit{background:var(--error);}
+.colorflood-grid{display:grid;gap:2px;margin:12px 0;}
+.flood-cell{aspect-ratio:1;border-radius:2px;}
+.flood-palette{display:flex;justify-content:center;gap:8px;margin-top:16px;}
+.flood-swatch{width:42px;height:42px;border-radius:10px;cursor:pointer;border:2px solid transparent;transition:all 0.15s ease;}
+.flood-swatch:active{transform:scale(0.9);}
+.c4-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;background:rgba(0,100,200,0.15);border-radius:14px;padding:8px;margin:16px 0;}
+.c4-cell{aspect-ratio:1;border-radius:50%;background:var(--bg-dark);cursor:pointer;}
+.c4-cell.red{background:radial-gradient(circle at 35% 30%,#ff6b6b,#d32f2f);}
+.c4-cell.yellow{background:radial-gradient(circle at 35% 30%,#fff176,#f9a825);}
+.rps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;}
+.rps-btn{background:var(--bg-glass);border:2px solid var(--border);border-radius:16px;padding:20px 0;text-align:center;font-size:2.2rem;cursor:pointer;transition:all 0.2s ease;}
+.rps-btn:active{transform:scale(0.92);border-color:var(--accent);}
+.stroop-word{font-family:'Orbitron',sans-serif;font-size:2.8rem;font-weight:900;text-align:center;margin:30px 0;}
 .site-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:16px;padding:0 10px;}
 .site-links span{color:var(--text-dim);font-size:0.8rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
 .site-links span:hover{color:var(--accent);}
@@ -193,7 +259,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 <div class="bg-animation"></div>
 
 <!-- 1. Splash Screen -->
-<div id="screen-splash" class="screen active">
+<div id="screen-splash" class="screen">
 <div class="card card-glow" style="text-align:center;padding:60px 28px;">
 <div class="splash-title">A-Z</div>
 <div class="splash-subtitle">ARCADE</div>
@@ -203,56 +269,102 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 </div>
 
 <!-- 3. Home / Hub Screen -->
-<div id="screen-home" class="screen">
-<div class="card card-glow" style="text-align:center;padding:32px 24px;">
-<div class="splash-title" style="font-size:1.9rem;">A-Z ARCADE</div>
-<div class="splash-subtitle" style="margin-bottom:20px;">CHOOSE YOUR GAME</div>
-<div class="hub-grid">
-<div class="hub-card" onclick="game.selectHub('typing')">
-<div class="hub-icon">⌨️</div>
-<div class="hub-name">Typing Challenge</div>
-<div class="hub-desc">9 modes</div>
+<div id="screen-home" class="screen active">
+<div class="card card-glow hero-section" style="text-align:center;padding:36px 24px;">
+<h1 class="hero-title">A-Z ARCADE</h1>
+<div class="hero-tagline">Play. Challenge Yourself. Improve.</div>
+<p class="hero-desc">Free browser-based mini-games for typing, memory, reaction, math, puzzles and trivia. No download. No sign-up. Just play.</p>
+<div class="hero-buttons">
+<button class="btn btn-primary" onclick="game.selectHub('typing')">▶ PLAY NOW</button>
+<button class="btn btn-secondary" onclick="game.scrollToId('games-section')">EXPLORE GAMES</button>
 </div>
-<div class="hub-card" onclick="game.selectHub('memory')">
-<div class="hub-icon">🧠</div>
-<div class="hub-name">Memory Match</div>
-<div class="hub-desc">Flip &amp; pair</div>
-</div>
-<div class="hub-card" onclick="game.selectHub('reaction')">
-<div class="hub-icon">⚡</div>
-<div class="hub-name">Reaction Time</div>
-<div class="hub-desc">Test reflexes</div>
-</div>
-<div class="hub-card" onclick="game.selectHub('math')">
-<div class="hub-icon">🧮</div>
-<div class="hub-name">Math Quiz</div>
-<div class="hub-desc">Beat the clock</div>
-</div>
-<div class="hub-card" onclick="game.selectHub('puzzles')">
-<div class="hub-icon">🧩</div>
-<div class="hub-name">Puzzles</div>
-<div class="hub-desc">8 puzzle games</div>
-</div>
-<div class="hub-card" onclick="game.selectHub('arcade')">
-<div class="hub-icon">🕹️</div>
-<div class="hub-name">Arcade</div>
-<div class="hub-desc">3 classic games</div>
-</div>
-<div class="hub-card" onclick="game.selectHub('trivia')">
-<div class="hub-icon">🎓</div>
-<div class="hub-name">Trivia Quiz</div>
-<div class="hub-desc">30 GK questions</div>
+<div class="feature-badges">
+<div class="feature-badge">🎮 Multiple Games</div>
+<div class="feature-badge">⭐ Fun &amp; Challenging</div>
+<div class="feature-badge">🧠 Improve Skills</div>
+<div class="feature-badge">🎁 100% Free</div>
 </div>
 </div>
+
+<div id="games-section">
+
+<h2 class="category-title">🎯 Skill</h2>
+<div class="category-tagline">Sharpen your speed, focus and reflexes</div>
+<div class="hub-grid" data-cat="skill">
+<div class="hub-card" onclick="game.selectHub('typing')"><div class="level-badge-mini">100 LVL</div><div class="hub-icon">⌨️</div><div class="hub-name">Typing Challenge</div><div class="hub-desc">9 modes</div></div>
+<div class="hub-card" onclick="game.selectHub('reaction')"><div class="level-badge-mini">100 LVL</div><div class="hub-icon">⚡</div><div class="hub-name">Reaction Time</div><div class="hub-desc">Test reflexes</div></div>
+<div class="hub-card" onclick="game.selectHub('math')"><div class="level-badge-mini">100 LVL</div><div class="hub-icon">🧮</div><div class="hub-name">Math Quiz</div><div class="hub-desc">Beat the clock</div></div>
+<div class="hub-card" onclick="game.startStroop()"><div class="hub-icon">🌈</div><div class="hub-name">Stroop Test</div><div class="hub-desc">Name the ink color</div></div>
 </div>
+
+<h2 class="category-title">🧠 Brain</h2>
+<div class="category-tagline">Train your memory, logic and pattern skills</div>
+<div class="hub-grid" data-cat="brain">
+<div class="hub-card" onclick="game.selectHub('memory')"><div class="level-badge-mini">100 LVL</div><div class="hub-icon">🃏</div><div class="hub-name">Memory Match</div><div class="hub-desc">Flip &amp; pair</div></div>
+<div class="hub-card" onclick="game.startWordSearch()"><div class="hub-icon">🔍</div><div class="hub-name">Word Search</div><div class="hub-desc">Find hidden words</div></div>
+<div class="hub-card" onclick="game.startCrossword()"><div class="hub-icon">✏️</div><div class="hub-name">Crossword</div><div class="hub-desc">Fill the grid</div></div>
+<div class="hub-card" onclick="game.openLevelSelect('simon','home')"><div class="level-badge-mini">100 LVL</div><div class="hub-icon">🎨</div><div class="hub-name">Simon Says</div><div class="hub-desc">Repeat the pattern</div></div>
+<div class="hub-card" onclick="game.openLevelSelect('lightsout','home')"><div class="level-badge-mini">100 LVL</div><div class="hub-icon">💡</div><div class="hub-name">Lights Out</div><div class="hub-desc">Turn all off</div></div>
+<div class="hub-card" onclick="game.startWordle()"><div class="hub-icon">🟩</div><div class="hub-name">Wordle</div><div class="hub-desc">Guess the 5-letter word</div></div>
+<div class="hub-card" onclick="game.startHangman()"><div class="hub-icon">🎪</div><div class="hub-name">Hangman</div><div class="hub-desc">Guess before it's too late</div></div>
+<div class="hub-card" onclick="game.startAnagram()"><div class="hub-icon">🔤</div><div class="hub-name">Anagram Scramble</div><div class="hub-desc">Unscramble the word</div></div>
+</div>
+
+<h2 class="category-title">🧩 Puzzle</h2>
+<div class="category-tagline">Classic brain-teasers, one tap at a time</div>
+<div class="hub-grid" data-cat="puzzle">
+<div class="hub-card" onclick="game.openLevelSelect('sliding','home')"><div class="level-badge-mini">100 LVL</div><div class="hub-icon">🧩</div><div class="hub-name">Sliding Puzzle</div><div class="hub-desc">Slide tiles in order</div></div>
+<div class="hub-card" onclick="game.newGame2048()"><div class="hub-icon">🔢</div><div class="hub-name">2048</div><div class="hub-desc">Merge the tiles</div></div>
+<div class="hub-card" onclick="game.newTttGame()"><div class="hub-icon">❌</div><div class="hub-name">Tic-Tac-Toe</div><div class="hub-desc">Beat the AI</div></div>
+<div class="hub-card" onclick="game.openLevelSelect('seqtap','home')"><div class="level-badge-mini">100 LVL</div><div class="hub-icon">🔢</div><div class="hub-name">Number Tap</div><div class="hub-desc">Tap in order</div></div>
+<div class="hub-card" onclick="game.startMinesweeper()"><div class="hub-icon">💣</div><div class="hub-name">Minesweeper</div><div class="hub-desc">Clear the field</div></div>
+<div class="hub-card" onclick="game.startColorFlood()"><div class="hub-icon">🎨</div><div class="hub-name">Color Flood</div><div class="hub-desc">Flood the whole grid</div></div>
+<div class="hub-card" onclick="game.newConnect4Game()"><div class="hub-icon">🔴</div><div class="hub-name">Connect Four</div><div class="hub-desc">Beat the AI</div></div>
+</div>
+
+<h2 class="category-title">🕹️ Arcade</h2>
+<div class="category-tagline">Fast-paced classics for quick reflex sessions</div>
+<div class="hub-grid" data-cat="arcade">
+<div class="hub-card" onclick="game.startSnake()"><div class="hub-icon">🐍</div><div class="hub-name">Snake</div><div class="hub-desc">Classic snake</div></div>
+<div class="hub-card" onclick="game.startWhack()"><div class="hub-icon">🔨</div><div class="hub-name">Whack-a-Mole</div><div class="hub-desc">Tap fast</div></div>
+<div class="hub-card" onclick="game.startFlappy()"><div class="hub-icon">🐦</div><div class="hub-name">Flappy Tap</div><div class="hub-desc">Dodge pipes</div></div>
+<div class="hub-card" onclick="game.startBreakout()"><div class="hub-icon">🧱</div><div class="hub-name">Breakout</div><div class="hub-desc">Smash the bricks</div></div>
+<div class="hub-card" onclick="game.startPong()"><div class="hub-icon">🏓</div><div class="hub-name">Pong</div><div class="hub-desc">Beat the AI</div></div>
+<div class="hub-card" onclick="game.newRpsGame()"><div class="hub-icon">✂️</div><div class="hub-name">Rock Paper Scissors</div><div class="hub-desc">Beat the AI</div></div>
+</div>
+
+<h2 class="category-title">🎓 Knowledge</h2>
+<div class="category-tagline">Test what you know across 30 GK questions</div>
+<div class="hub-grid" data-cat="knowledge">
+<div class="hub-card" onclick="game.startTrivia()"><div class="hub-icon">🎓</div><div class="hub-name">Trivia Quiz</div><div class="hub-desc">30 GK questions</div></div>
+</div>
+
+</div>
+
+<div class="card" style="text-align:center;">
+<div style="font-weight:600;margin-bottom:4px;">📖 New here?</div>
+<div style="color:var(--text-dim);font-size:0.82rem;margin-bottom:12px;">Learn how everything works, why these games are worth playing, and what's included.</div>
+<button class="btn btn-secondary" onclick="game.showScreen('whyplay')">Why Play A-Z Arcade →</button>
+</div>
+
 <div class="card" style="text-align:center;">
 <button class="btn btn-secondary" onclick="game.showScreen('stats')">📊 Statistics</button>
 <button class="btn btn-secondary" onclick="game.showScreen('settings')">⚙ Settings</button>
-<button class="btn btn-secondary" onclick="game.showScreen('about')">ℹ About Us</button>
-<button class="btn btn-secondary" onclick="game.showScreen('guide')">📖 How to Play &amp; Tips</button>
-<button class="btn btn-secondary" onclick="game.showScreen('privacy')">🔒 Privacy Policy</button>
-<button class="btn btn-secondary" onclick="game.showScreen('contact')">✉️ Contact Us</button>
 </div>
+
+<footer class="site-footer">
+<div class="footer-title">A-Z ARCADE</div>
+<div class="footer-tagline">Free browser-based mini-games.</div>
+<div class="footer-links">
+<span onclick="game.scrollToId('games-section')">Games</span>
+<span onclick="game.showScreen('whyplay')">Why Play</span>
+<span onclick="game.showScreen('guide')">How to Play</span>
+<span onclick="game.showScreen('about')">About</span>
+<span onclick="game.showScreen('privacy')">Privacy</span>
+<span onclick="game.showScreen('contact')">Contact</span>
+</div>
+<div class="footer-copy">© <span id="footer-year">2026</span> A-Z Arcade. All rights reserved.</div>
+</footer>
 </div>
 
 <!-- 3b. Puzzle Hub -->
@@ -346,11 +458,16 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 <button class="btn btn-secondary" data-time="5">5s</button>
 </div>
 <div style="text-align:center;color:var(--text-dim);margin-bottom:12px;font-size:0.85rem;">— OR —</div>
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+<div style="display:flex;align-items:center;gap:10px;">
 <span style="color:var(--text-dim);white-space:nowrap;">Custom:</span>
 <input type="number" id="custom-time" class="input-field" style="margin-bottom:0;flex:1;" placeholder="Enter seconds" min="1" max="999">
 <span style="color:var(--text-dim);white-space:nowrap;">sec</span>
 </div>
+</div>
+<div class="card" id="endless-note-card" style="display:none;text-align:center;">
+<div style="color:var(--text-dim);font-size:0.85rem;">♾️ Endless mode has no time limit — you keep typing random letters until you run out of lives.</div>
+</div>
+<div class="card">
 <button class="btn btn-primary" onclick="game.startTypingFreePlay()">START GAME</button>
 <button class="btn btn-warning" onclick="game.openLevelSelect('typing','setup')">🏆 Play 100 Levels</button>
 </div>
@@ -514,7 +631,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 </div>
 <div class="card">
 <div style="font-weight:600;margin-bottom:4px;color:var(--accent);">Your Data</div>
-<div style="color:var(--text-dim);font-size:0.82rem;margin-bottom:12px;">Nothing is ever saved — not on your device, not on any server. All scores, levels and settings live only in memory for this session and disappear the moment you close or refresh the app.</div>
+<div style="color:var(--text-dim);font-size:0.82rem;margin-bottom:12px;">Your scores, level progress and settings are saved locally in this browser (using localStorage) so they're still here next time you visit. This data stays on your device only — it is never uploaded to any server. See our Privacy Policy for details.</div>
 <button class="btn btn-danger btn-small" onclick="game.resetStats()">🗑 Reset Statistics &amp; Levels</button>
 <button class="btn btn-danger btn-small" onclick="game.resetAll()">🗑 Reset Everything (This Session)</button>
 </div>
@@ -529,18 +646,19 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 </div>
 <div class="card" style="text-align:center;">
 <div class="splash-title" style="font-size:2rem;margin-bottom:8px;">A-Z</div>
-<div class="subtitle" style="margin-bottom:20px;">ARCADE</div>
+<div class="subtitle" style="margin-bottom:12px;">ARCADE</div>
+<div style="color:var(--text-dim);font-size:0.85rem;">Created &amp; Developed by <span style="color:var(--accent);font-weight:600;">A-Z Arcade Team</span></div>
 </div>
 <div class="card">
 <div class="legal-text">
 <h3>About A-Z Arcade</h3>
-<p>A-Z Arcade is a free, browser-based collection of 15 mini-games. It started as a simple A-to-Z typing challenge and has since grown into a full arcade covering typing practice, memory training, reaction-time testing, mental math, classic puzzles (Sliding Puzzle, Simon Says, Word Search, Crossword, Tic-Tac-Toe, 2048, Lights Out and more) and arcade classics like Snake, Whack-a-Mole and Flappy Tap, plus a general knowledge trivia quiz.</p>
+<p>A-Z Arcade is a free browser-based collection of mini-games created and developed by the A-Z Arcade Team. The project started as a simple A-to-Z typing challenge and evolved into a collection of games covering typing, memory, reaction, mathematics, puzzles, arcade and trivia.</p>
 <h3>Our Mission</h3>
-<p>The goal of this site is to give anyone with a phone or laptop a quick, ad-supported way to sharpen their typing speed, reflexes, memory and general knowledge — no installation, no sign-up, no cost. Every game runs entirely in your browser.</p>
+<p>The goal of this site is to give anyone with a phone or laptop a quick way to sharpen their typing speed, reflexes, memory and general knowledge — no installation, no sign-up, no cost. Every game runs entirely in your browser.</p>
 <h3>How We're Funded</h3>
-<p>This site is supported by Google AdSense advertising. Ads help cover hosting and development time so the games can stay free for everyone to play.</p>
+<p>This site may be supported by advertising to help cover hosting and development costs so the games can stay free for everyone to play.</p>
 <h3>Your Privacy</h3>
-<p>A-Z Arcade is designed to minimize data collection. We do not intentionally collect or store your personal information or gameplay data on our own servers. Third-party services such as Google AdSense may process certain information as described in our <span style="color:var(--accent);cursor:pointer;text-decoration:underline;" onclick="game.showScreen('privacy')">Privacy Policy</span>.</p>
+<p>A-Z Arcade is designed to minimize data collection. Your scores and level progress are saved locally in your own browser so they're there next time you play, but we do not intentionally collect or store your personal information or gameplay data on our own servers. Third-party services such as Google AdSense may process certain information as described in our <span style="color:var(--accent);cursor:pointer;text-decoration:underline;" onclick="game.showScreen('privacy')">Privacy Policy</span>.</p>
 </div>
 </div>
 </div>
@@ -555,15 +673,42 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 <div class="card">
 <div class="legal-text">
 <h3>Getting Started</h3>
-<p>From the Home screen, pick a game card — Typing Challenge, Memory Match, Reaction Time, Math Quiz, Puzzles, Arcade or Trivia Quiz. Each game opens its own setup screen where you can choose a mode or difficulty before you start, or tap "Play 100 Levels" (on Typing, Memory, Reaction and Math) to work through a structured level ladder instead of free play.</p>
+<p>From the Home screen, scroll through five categories — Skill, Brain, Puzzle, Arcade and Knowledge — and tap any game card to jump straight in. Typing Challenge, Memory Match, Reaction Time, Math Quiz, Sliding Puzzle, Simon Says, Lights Out and Number Tap each also have a "Play 100 Levels" option to work through a structured difficulty ladder instead of free play.</p>
 <h3>Typing Challenge Modes Explained</h3>
 <p><strong>Classic</strong> asks you to type A to Z in order. <strong>Reverse</strong> flips it to Z to A. <strong>Random</strong> shuffles the alphabet so you never know what's next. <strong>Speed</strong> is Classic mode on a much shorter timer for an extra challenge. <strong>Endless</strong> has no timer or word limit — you keep typing random letters until you run out of lives, so it's great for pure stamina practice. <strong>Word Rush</strong> and <strong>Sentences</strong> replace single letters with full words or sentences, which is closer to real-world typing. <strong>Numbers</strong> and <strong>Symbols</strong> train you on digits and punctuation, which most typing games skip but real typing (passwords, code, forms) needs constantly.</p>
 <h3>Tips to Improve Your Typing Speed</h3>
 <p>1. Keep your eyes on the screen, not your fingers — glancing down breaks your rhythm. 2. Start on Classic mode with a longer time limit (45-60s) before moving to Speed mode. 3. Accuracy first, speed second — a wrong keystroke costs more time than typing slightly slower. 4. Practice Numbers and Symbols mode separately since they use different finger positions than letters. 5. Use Endless mode for 5-10 minutes a day to build muscle memory rather than one long session. 6. Track your progress in the Statistics screen — small daily improvements in accuracy matter more than occasional fast runs.</p>
-<h3>Other Games at a Glance</h3>
-<p><strong>Memory Match</strong> trains short-term visual memory by flipping cards to find pairs. <strong>Reaction Time</strong> measures how fast you tap after a colour change across 5 rounds. <strong>Math Quiz</strong> is a timed arithmetic sprint with three difficulty tiers. The <strong>Puzzles</strong> hub has logic games like Sliding Puzzle, Lights Out, Simon Says, Word Search, Crossword, Tic-Tac-Toe and 2048. The <strong>Arcade</strong> hub has quick-reflex classics: Snake, Whack-a-Mole and Flappy Tap. <strong>Trivia Quiz</strong> tests general knowledge across 10 random questions per round.</p>
+<h3>🎯 Skill Games</h3>
+<p><strong>Reaction Time</strong> — wait for the box to turn green, then tap it as fast as you can, across 5 rounds; tapping too early restarts the round. <strong>Math Quiz</strong> — solve as many arithmetic problems as you can before the timer runs out, across Easy, Medium and Hard tiers. <strong>Stroop Test</strong> — a color name is shown in a different ink color; tap the button matching the INK color, not the word itself. It sounds easy until your brain starts arguing with your eyes.</p>
+<h3>🧠 Brain Games</h3>
+<p><strong>Memory Match</strong> — flip two cards at a time to find matching pairs; fewer moves and less time means a higher score. <strong>Word Search</strong> — tap the first letter of a hidden word, then its last letter, to select the whole line. <strong>Crossword</strong> — fill the 3x3 grid so every row spells a real word, using the clues provided. <strong>Simon Says</strong> — watch the sequence of colors flash, then tap them back in the exact same order; one mistake ends the round. <strong>Lights Out</strong> — tapping a light toggles it and its neighbors; turn every light off to win. <strong>Wordle</strong> — guess the secret 5-letter word in 6 tries; green means the right letter in the right spot, yellow means it's in the word but the wrong spot, and gray means it's not in the word at all. <strong>Hangman</strong> — guess letters one at a time to reveal the hidden word before you run out of lives. <strong>Anagram Scramble</strong> — unscramble the jumbled letters into a real word as fast as you can before time runs out.</p>
+<h3>🧩 Puzzle Games</h3>
+<p><strong>Sliding Puzzle</strong> — tap a tile next to the empty space to slide it, and arrange all the numbers in order. <strong>2048</strong> — swipe in any direction to slide every tile that way; matching numbers merge into their double; try to reach the 2048 tile. <strong>Tic-Tac-Toe</strong> — get three in a row before the AI does; choose Easy for a relaxed game or Hard for an unbeatable opponent. <strong>Number Tap</strong> — tap the scattered numbers in ascending order before the timer runs out. <strong>Minesweeper</strong> — tap a cell to reveal it; a number tells you how many mines are touching that cell. Use the Flag Mode button to mark cells you suspect are mines, then switch back to reveal safely. Clear every non-mine cell to win. <strong>Color Flood</strong> — pick a color from the palette to flood outward from the top-left corner; get the entire grid to one color within the move limit. <strong>Connect Four</strong> — tap a column to drop your disc; connect four discs in a row (across, up-down, or diagonal) before the AI does.</p>
+<h3>🕹️ Arcade Games</h3>
+<p><strong>Snake</strong> — steer with swipe or the on-screen D-pad to eat food and grow longer, without hitting the walls or your own tail. <strong>Whack-a-Mole</strong> — tap each mole the instant it pops up before it ducks back down. <strong>Flappy Tap</strong> — tap the screen to flap and glide your bird between the gaps in the pipes. <strong>Breakout</strong> — drag left and right to move the paddle, keep the ball in play, and smash every brick. <strong>Pong</strong> — drag up and down to move your paddle and score 5 points before the AI does. <strong>Rock Paper Scissors</strong> — pick rock, paper or scissors each round and see who the AI throws against you.</p>
+<h3>🎓 Knowledge</h3>
+<p><strong>Trivia Quiz</strong> — answer 10 random multiple-choice general knowledge questions pulled from a bank of 30, covering geography, science, history and more.</p>
 <h3>A Note on Progress</h3>
-<p>Nothing you do in A-Z Arcade is saved to any server or device storage — your scores and level progress last only for your current browser session and reset when you close or refresh the page.</p>
+<p>Your scores and level progress are automatically saved in this browser, so they'll still be here the next time you visit — no account or sign-up needed. This data stays on your device only and is never uploaded to a server. You can clear it any time from Settings.</p>
+</div>
+</div>
+</div>
+
+<!-- Why Play A-Z Arcade -->
+<div id="screen-whyplay" class="screen">
+<div class="nav-header">
+<button class="nav-back" onclick="game.showScreen('home')">← Back</button>
+<div class="nav-title">Why Play A-Z Arcade</div>
+<div style="width:60px;"></div>
+</div>
+<div class="card">
+<div class="legal-text">
+<h3>How to Play A-Z Arcade</h3>
+<p>Getting started is simple: pick any game card on the Home screen and it opens straight away — no downloads, no account, no waiting. Most games offer a quick Free Play mode plus a structured 100-level ladder you can work through at your own pace, unlocking the next level each time you clear one. Use your keyboard or the on-screen touch controls depending on your device, and check the <span style="color:var(--accent);cursor:pointer;text-decoration:underline;" onclick="game.showScreen('guide')">How to Play &amp; Tips</span> page for mode-by-mode instructions and strategy tips for every game in the arcade.</p>
+<h3>Benefits of Playing Typing &amp; Brain Games</h3>
+<p>A few minutes a day on games like Typing Challenge, Memory Match or Math Quiz can measurably improve real-world skills: faster, more accurate typing speeds up everything from schoolwork to job applications; memory games strengthen short-term recall and pattern recognition; reaction-time drills sharpen focus and reflexes; and quick mental-math practice builds number confidence. Unlike passive scrolling, these games give you instant feedback on your own progress, which is one of the fastest ways to actually get better at a skill.</p>
+<h3>Features of A-Z Arcade</h3>
+<p>26 free mini-games across five categories — Skill, Brain, Puzzle, Arcade and Knowledge. Eight of them include a full 100-level progression system with increasing difficulty. Everything runs directly in your browser with no installation, and your scores and level progress are saved automatically on your own device so you can pick up where you left off. The site is mobile-friendly with touch controls, swipe gestures and sound effects throughout, and works equally well on phones, tablets and desktops.</p>
 </div>
 </div>
 </div>
@@ -577,7 +722,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 </div>
 <div class="card">
 <div class="legal-text">
-<p style="color:var(--text-dim);font-size:0.8rem;">Last Updated: August 2026</p>
+<p style="color:var(--text-dim);font-size:0.8rem;">Last Updated: September 2026</p>
 
 <h3>1. Overview</h3>
 <p>Welcome to A-Z Arcade ("we," "our," "us," or "the Site"). A-Z Arcade is a free browser-based gaming website.</p>
@@ -586,7 +731,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 <h3>2. Information We Collect</h3>
 <p>A-Z Arcade does not require users to create an account, log in, or provide personal information in order to play our games.</p>
 <p>We do not intentionally ask users to provide information such as their name, home address, phone number, or date of birth simply to play our games.</p>
-<p>Game scores, progress, and temporary game settings may be stored temporarily in your browser while you use the Site. Unless specifically stated otherwise, we do not intentionally store this game data on our own servers or databases.</p>
+<p>Game scores, level progress, and game settings are saved locally in your browser using a technology called localStorage, so your progress is still there the next time you visit. This data is stored only on your own device — we do not intentionally store this game data on our own servers or databases, and it is never uploaded anywhere. You can clear this data at any time from the Settings screen, or by clearing your browser's site data.</p>
 <p>Please note that third-party services used on the Site, including advertising services, may independently collect or process certain technical information as described below.</p>
 
 <h3>3. Google AdSense and Third-Party Advertising</h3>
@@ -596,11 +741,13 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 <p>You can learn more about how Google uses information from websites that use its services here: <a href="https://policies.google.com/technologies/partner-sites" target="_blank" style="color:var(--accent);">policies.google.com/technologies/partner-sites</a></p>
 <p>You can also manage certain advertising preferences through Google Ads Settings: <a href="https://adssettings.google.com/" target="_blank" style="color:var(--accent);">adssettings.google.com</a></p>
 
-<h3>4. Cookies and Similar Technologies</h3>
-<p>A-Z Arcade itself does not intentionally set cookies for user tracking or advertising purposes.</p>
+<h3>4. Cookies and Local Storage</h3>
+<p>A-Z Arcade itself does not intentionally set cookies for user tracking or advertising purposes. We do use your browser's localStorage to save your game scores, level progress and settings on your own device, as described in Section 2 — this is not a cookie and is not used for tracking or advertising. If your browser supports it, a small service worker may also cache this site's own files (HTML, icons) so the games can load faster and work offline; this cache contains only the app's own code and images, never your scores or personal data.</p>
 <p>However, third-party services used on the Site, particularly Google AdSense, may place or access cookies and similar technologies for advertising, measurement, security, or other purposes.</p>
 <p>The availability and use of certain cookies may depend on your location, browser settings, and applicable consent requirements.</p>
-<p>You can control or delete cookies through your browser settings. Disabling cookies may affect certain website or advertising functionality.</p>
+<p>You can control or delete cookies through your browser settings, and you can clear your saved game data at any time from the Settings screen. Disabling cookies or clearing site data may affect certain website or advertising functionality.</p>
+<p>This site loads fonts from Google Fonts, a third-party service, to display text correctly. Loading these fonts may cause your device to send a request (including your IP address) to Google's servers, separate from any advertising activity. You can read Google's own privacy policy for details on how they handle this.</p>
+<p>A-Z Arcade can optionally be installed to your device's home screen (as a Progressive Web App). Installing it does not require an account and does not collect any additional personal information — it simply lets the site's own files load faster and work offline.</p>
 
 <h3>5. Children's Privacy</h3>
 <p>A-Z Arcade is not intentionally designed to collect personal information from children.</p>
@@ -642,12 +789,25 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 <div style="width:60px;"></div>
 </div>
 <div class="card" style="text-align:center;">
-<div style="font-size:3rem;margin-bottom:8px;">✉️</div>
+<div style="font-size:2.5rem;margin-bottom:4px;">✉️</div>
 <div class="legal-text" style="text-align:center;">
-<p>Have feedback, found a bug, or want to suggest a new game or feature? We'd love to hear from you.</p>
+<p>Have feedback, found a bug, or want to suggest a new game? We'd love to hear from you — pick an option below.</p>
 </div>
-<div style="margin:20px 0;"><div style="color:var(--text-dim);font-size:0.9rem;">Email</div><div style="font-weight:700;font-size:1.15rem;color:var(--accent);margin-top:4px;">connect8xmk@gmail.com</div></div>
-<a href="mailto:connect8xmk@gmail.com" class="btn btn-primary">📧 SEND AN EMAIL</a>
+</div>
+<div class="card" style="text-align:left;">
+<div style="font-weight:600;font-size:1.05rem;margin-bottom:2px;">🐞 Report a Bug</div>
+<div style="color:var(--text-dim);font-size:0.82rem;margin-bottom:12px;">Something not working right? Let us know what happened.</div>
+<a href="mailto:connect8xmk@gmail.com?subject=Bug%20Report%20-%20A-Z%20Arcade" class="btn btn-secondary">📧 REPORT A BUG</a>
+</div>
+<div class="card" style="text-align:left;">
+<div style="font-weight:600;font-size:1.05rem;margin-bottom:2px;">💡 Suggest a Game</div>
+<div style="color:var(--text-dim);font-size:0.82rem;margin-bottom:12px;">Got an idea for a new game or mode we should add?</div>
+<a href="mailto:connect8xmk@gmail.com?subject=Game%20Suggestion%20-%20A-Z%20Arcade" class="btn btn-secondary">📧 SUGGEST A GAME</a>
+</div>
+<div class="card" style="text-align:left;">
+<div style="font-weight:600;font-size:1.05rem;margin-bottom:2px;">💬 General Contact</div>
+<div style="color:var(--text-dim);font-size:0.82rem;margin-bottom:12px;">Anything else on your mind? Reach out any time.</div>
+<a href="mailto:connect8xmk@gmail.com?subject=General%20Contact%20-%20A-Z%20Arcade" class="btn btn-primary">📧 SEND AN EMAIL</a>
 </div>
 </div>
 
@@ -1063,6 +1223,130 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 <button class="btn btn-secondary" onclick="game.arcadeResultHome()">🏠 HOME</button>
 </div>
 </div>
+
+<!-- Wordle -->
+<div id="screen-wordle-game" class="screen">
+<div class="nav-header"><button class="nav-back" onclick="game.quitToHome()">← Quit</button><div class="nav-title">Wordle</div><div style="width:60px;"></div></div>
+<div class="card card-glow" style="text-align:center;">
+<div class="wordle-grid" id="wordle-grid"></div>
+<div class="math-input-row" style="max-width:280px;margin:0 auto;">
+<input type="text" id="wordle-input" class="input-field" maxlength="5" placeholder="Guess" autocomplete="off" style="text-align:center;text-transform:uppercase;">
+<button class="btn btn-primary" onclick="game.submitWordleGuess()">GO</button>
+</div>
+<div id="wordle-message" class="message" style="display:none;"></div>
+</div>
+</div>
+
+<!-- Hangman -->
+<div id="screen-hangman-game" class="screen">
+<div class="nav-header"><button class="nav-back" onclick="game.quitToHome()">← Quit</button><div class="nav-title">Hangman</div><div style="width:60px;"></div></div>
+<div class="lives-display" id="hangman-lives" style="text-align:center;">❤️❤️❤️❤️❤️❤️</div>
+<div class="card card-glow" style="text-align:center;">
+<div class="hangman-word" id="hangman-word">_ _ _ _ _</div>
+<div class="hangman-letters" id="hangman-letters"></div>
+</div>
+</div>
+
+<!-- Anagram Scramble -->
+<div id="screen-anagram-game" class="screen">
+<div class="nav-header"><button class="nav-back" onclick="game.quitToHome()">← Quit</button><div class="nav-title">Anagram Scramble</div><div style="width:60px;"></div></div>
+<div class="stats-row">
+<div class="stat-box"><div class="stat-value" id="anagram-timer">60</div><div class="stat-label">TIME</div></div>
+<div class="stat-box"><div class="stat-value" id="anagram-score">0</div><div class="stat-label">SCORE</div></div>
+</div>
+<div class="card card-glow" style="text-align:center;">
+<div class="math-question" id="anagram-scrambled">XXXXX</div>
+<div class="math-input-row">
+<input type="text" id="anagram-input" class="input-field" placeholder="Your answer" autocomplete="off" style="text-transform:uppercase;">
+<button class="btn btn-primary" onclick="game.submitAnagramGuess()">GO</button>
+</div>
+<div id="anagram-message" class="message" style="display:none;"></div>
+</div>
+</div>
+
+<!-- Minesweeper -->
+<div id="screen-minesweeper-game" class="screen">
+<div class="nav-header"><button class="nav-back" onclick="game.quitToHome()">← Quit</button><div class="nav-title">Minesweeper</div><div style="width:60px;"></div></div>
+<div class="stats-row">
+<div class="stat-box"><div class="stat-value" id="mine-count">10</div><div class="stat-label">MINES LEFT</div></div>
+<button class="btn btn-secondary" id="mine-flag-toggle" style="flex:1;margin:0;" onclick="game.toggleMineFlagMode()">🚩 Flag Mode: OFF</button>
+</div>
+<div class="card card-glow" style="padding:10px;">
+<div class="minesweeper-grid" id="minesweeper-grid"></div>
+</div>
+</div>
+
+<!-- Color Flood -->
+<div id="screen-colorflood-game" class="screen">
+<div class="nav-header"><button class="nav-back" onclick="game.quitToHome()">← Quit</button><div class="nav-title">Color Flood</div><div style="width:60px;"></div></div>
+<div class="stats-row"><div class="stat-box"><div class="stat-value" id="flood-moves">0/25</div><div class="stat-label">MOVES</div></div></div>
+<div class="card card-glow" style="padding:10px;">
+<div class="colorflood-grid" id="colorflood-grid"></div>
+<div class="flood-palette" id="flood-palette"></div>
+</div>
+</div>
+
+<!-- Connect Four -->
+<div id="screen-connect4-game" class="screen">
+<div class="nav-header"><button class="nav-back" onclick="game.quitToHome()">← Quit</button><div class="nav-title">Connect Four</div><div style="width:60px;"></div></div>
+<div class="card" style="text-align:center;">
+<div class="subtitle" id="c4-status" style="margin-bottom:0;">Your turn (Red)</div>
+</div>
+<div class="c4-grid" id="c4-grid"></div>
+<button class="btn btn-primary" onclick="game.newConnect4Game()">🔁 NEW GAME</button>
+</div>
+
+<!-- Breakout -->
+<div id="screen-breakout-game" class="screen">
+<div class="nav-header"><button class="nav-back" onclick="game.quitToHome()">← Quit</button><div class="nav-title">Breakout</div><div style="width:60px;"></div></div>
+<div class="stats-row">
+<div class="stat-box"><div class="stat-value" id="breakout-score">0</div><div class="stat-label">SCORE</div></div>
+<div class="stat-box"><div class="stat-value" id="breakout-lives">3</div><div class="stat-label">LIVES</div></div>
+</div>
+<canvas id="breakout-canvas" class="arcade-canvas" width="300" height="400"></canvas>
+<div style="text-align:center;color:var(--text-dim);font-size:0.85rem;margin-top:8px;">Drag left/right to move the paddle</div>
+</div>
+
+<!-- Pong -->
+<div id="screen-pong-game" class="screen">
+<div class="nav-header"><button class="nav-back" onclick="game.quitToHome()">← Quit</button><div class="nav-title">Pong</div><div style="width:60px;"></div></div>
+<div class="stats-row"><div class="stat-box"><div class="stat-value" id="pong-score">0 - 0</div><div class="stat-label">YOU - AI</div></div></div>
+<canvas id="pong-canvas" class="arcade-canvas" width="300" height="400"></canvas>
+<div style="text-align:center;color:var(--text-dim);font-size:0.85rem;margin-top:8px;">Drag up/down to move your paddle</div>
+</div>
+
+<!-- Rock Paper Scissors -->
+<div id="screen-rps-game" class="screen">
+<div class="nav-header"><button class="nav-back" onclick="game.quitToHome()">← Quit</button><div class="nav-title">Rock Paper Scissors</div><div style="width:60px;"></div></div>
+<div class="stats-row">
+<div class="stat-box"><div class="stat-value" id="rps-wins">0</div><div class="stat-label">WINS</div></div>
+<div class="stat-box"><div class="stat-value" id="rps-draws">0</div><div class="stat-label">DRAWS</div></div>
+<div class="stat-box"><div class="stat-value" id="rps-losses">0</div><div class="stat-label">LOSSES</div></div>
+</div>
+<div class="card card-glow" style="text-align:center;">
+<div class="subtitle" id="rps-status" style="margin-bottom:0;">Pick one!</div>
+<div class="rps-grid">
+<div class="rps-btn" onclick="game.playRps('rock')">🪨</div>
+<div class="rps-btn" onclick="game.playRps('paper')">📄</div>
+<div class="rps-btn" onclick="game.playRps('scissors')">✂️</div>
+</div>
+</div>
+</div>
+
+<!-- Stroop Test -->
+<div id="screen-stroop-game" class="screen">
+<div class="nav-header"><button class="nav-back" onclick="game.quitToHome()">← Quit</button><div class="nav-title">Stroop Test</div><div style="width:60px;"></div></div>
+<div class="stats-row">
+<div class="stat-box"><div class="stat-value" id="stroop-timer">30</div><div class="stat-label">TIME</div></div>
+<div class="stat-box"><div class="stat-value" id="stroop-score">0</div><div class="stat-label">SCORE</div></div>
+</div>
+<div class="card card-glow" style="text-align:center;">
+<div style="color:var(--text-dim);font-size:0.85rem;margin-bottom:0;">Tap the button matching the INK COLOR, not the word</div>
+<div class="stroop-word" id="stroop-word">RED</div>
+<div id="stroop-options"></div>
+</div>
+</div>
+
 <script>
 const game={
 currentMode:'classic',currentLetter:'A',currentIndex:0,timeLimit:15,timeRemaining:15,score:0,correctInputs:0,wrongInputs:0,totalInputs:0,gameRunning:false,gamePaused:false,gameCompleted:false,streak:0,bestStreak:0,combo:0,maxCombo:0,timerInterval:null,startTime:null,audioCtx:null,lives:3,maxLives:3,wordList:[],currentWord:'',wordIndex:0,charIndex:0,endlessLetters:0,wordsTyped:0,sequence:[],
@@ -1100,16 +1384,31 @@ triviaBank:[{q:'What is the capital of France?',options:['Berlin','Madrid','Pari
 triviaQuestions:[],triviaIndex:0,triviaScore:0,triviaAnswered:false,
 arcadeRetryFn:null,
 
+wordleAnswer:'',wordleRow:0,wordleGuesses:[],wordleOver:false,
+hangmanWord:'',hangmanGuessed:[],hangmanWrong:0,hangmanMaxWrong:6,
+anagramWord:'',anagramScore:0,anagramTimeLeft:60,anagramInterval:null,
+mineGrid:[],mineSize:9,mineCount:10,mineFlagMode:false,mineRevealedCount:0,mineOver:false,
+floodGrid:[],floodSize:12,floodMoves:0,floodMaxMoves:25,floodColors:['#ff6b6b','#4dd0e1','#ffd54f','#81c784','#ba68c8','#ff8a65'],
+c4Board:[],c4CurrentPlayer:'red',c4GameOver:false,
+breakoutScore:0,breakoutLives:3,breakoutRAF:null,breakoutRunning:false,breakoutPaddleX:110,breakoutBall:{},breakoutBricks:[],
+pongPlayerY:150,pongAiY:150,pongBallX:150,pongBallY:200,pongBallVX:3,pongBallVY:2,pongScorePlayer:0,pongScoreAi:0,pongRAF:null,pongRunning:false,
+rpsWins:0,rpsDraws:0,rpsLosses:0,
+stroopScore:0,stroopTimeLeft:30,stroopInterval:null,stroopAnswer:'',
+
 defaultStats(){return{gamesPlayed:0,gamesWon:0,gamesLost:0,bestScore:0,fastestTime:null,bestAccuracy:0,totalTime:0,totalWins:0,classicWins:0,reverseWins:0,randomWins:0,speedWins:0,endlessBest:0,wordsBest:0,numbersWins:0,symbolsWins:0,sentencesBest:0,memoryBest_easy:0,memoryBest_medium:0,memoryBest_hard:0,reactionBest:null,mathBestScore:0,mathBestSolved:0,levelProgress:{typing:1,memory:1,reaction:1,math:1,sliding:1,simon:1,seqtap:1,lightsout:1}};},
 stats:{},
 
-init(){try{this.stats=this.defaultStats();this.loadData();this.setupEventListeners();this.updateSettingsUI();}catch(e){console.error('A-Z Arcade init error:',e);}setTimeout(()=>{this.showScreen('home');},1500);},
+init(){try{this.stats=this.defaultStats();this.loadData();this.setupEventListeners();this.updateSettingsUI();const yr=document.getElementById('footer-year');if(yr)yr.textContent=new Date().getFullYear();this.registerServiceWorker();}catch(e){console.error('A-Z Arcade init error:',e);}this.showScreen('home');},
 
-loadData(){/* No storage is used anywhere - nothing is read from or saved to this or any device. Everything lives only in memory for this session and resets on reload/close. */},
+registerServiceWorker(){if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('./service-worker.js').catch(()=>{/* offline support just won't be available - the game still works fine online */});});}},
 
-saveData(){/* Intentionally does nothing - the game never writes any data to this device or anywhere else. */},
+loadData(){try{const saved=localStorage.getItem('azArcadeProgress_v1');if(saved){const data=JSON.parse(saved);if(data.stats){this.stats={...this.stats,...data.stats};if(data.stats.levelProgress){this.stats.levelProgress={...this.stats.levelProgress,...data.stats.levelProgress};}}if(data.settings)this.settings={...this.settings,...data.settings};}}catch(e){console.warn('Could not load saved progress:',e);}},
+
+saveData(){try{localStorage.setItem('azArcadeProgress_v1',JSON.stringify({stats:this.stats,settings:this.settings}));}catch(e){console.warn('Could not save progress (storage may be full or disabled):',e);}},
 
 showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-'+id).classList.add('active');if(id==='stats')this.updateStatsUI();if(id==='settings')this.updateSettingsUI();if(id==='game'&&this.settings.autofocus){setTimeout(()=>{const input=document.getElementById('game-input');if(input)input.focus();},100);}},
+
+scrollToId(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},
 
 selectHub(hub){if(hub==='typing')this.showScreen('setup');else if(hub==='memory')this.showScreen('memory-setup');else if(hub==='reaction')this.showScreen('reaction-intro');else if(hub==='math')this.showScreen('math-setup');else if(hub==='puzzles')this.showScreen('puzzle-hub');else if(hub==='arcade')this.showScreen('arcade-hub');else if(hub==='trivia')this.startTrivia();},
 
@@ -1118,6 +1417,203 @@ arcadeResultRetry(){document.getElementById('overlay-arcade-result').classList.r
 arcadeResultHome(){document.getElementById('overlay-arcade-result').classList.remove('active');this.quitToHome();},
 
 attachSwipe(el,callback){if(!el)return;let sx=0,sy=0;el.addEventListener('touchstart',(e)=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});el.addEventListener('touchend',(e)=>{const dx=e.changedTouches[0].clientX-sx;const dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)<20&&Math.abs(dy)<20)return;if(Math.abs(dx)>Math.abs(dy)){callback(dx>0?'right':'left');}else{callback(dy>0?'down':'up');}},{passive:true});},
+
+/* ===== WORDLE ===== */
+wordleBank:['APPLE','BRAVE','CHAIR','DANCE','EAGLE','FLAME','GRAPE','HOUSE','JOKER','KNIFE','LEMON','MONEY','NIGHT','OCEAN','PIANO','QUEEN','RIVER','STONE','TABLE','UNCLE','VOICE','WATER','YOUTH','ZEBRA','BEACH','CLOUD','DREAM','EARTH','FROST','GHOST','HEART','IVORY','JUICE','KOALA','LIGHT','MUSIC','NORTH','OLIVE','PEACE','QUICK','ROBOT','SMILE','TIGER','UNITY','VIVID','WORLD','YIELD'],
+startWordle(){this.wordleAnswer=this.wordleBank[Math.floor(Math.random()*this.wordleBank.length)];this.wordleRow=0;this.wordleGuesses=[];this.wordleOver=false;this.renderWordleGrid();this.showScreen('wordle-game');const inp=document.getElementById('wordle-input');if(inp){inp.value='';if(!inp.dataset.listenerAdded){inp.addEventListener('keydown',(e)=>{if(e.key==='Enter'){e.preventDefault();this.submitWordleGuess();}});inp.dataset.listenerAdded='1';}}},
+renderWordleGrid(){const grid=document.getElementById('wordle-grid');grid.innerHTML='';for(let r=0;r<6;r++){const row=document.createElement('div');row.className='wordle-row';for(let c=0;c<5;c++){const cell=document.createElement('div');cell.className='wordle-cell';const guess=this.wordleGuesses[r];if(guess){cell.textContent=guess.word[c];cell.classList.add(guess.result[c]);}row.appendChild(cell);}grid.appendChild(row);}},
+submitWordleGuess(){if(this.wordleOver)return;const inp=document.getElementById('wordle-input');const word=(inp.value||'').toUpperCase().trim();if(word.length!==5){this.showWordleMessage('Enter exactly 5 letters','error');return;}
+const answerLetters=this.wordleAnswer.split('');const result=new Array(5).fill('absent');const used=new Array(5).fill(false);
+for(let i=0;i<5;i++){if(word[i]===answerLetters[i]){result[i]='correct';used[i]=true;}}
+for(let i=0;i<5;i++){if(result[i]==='correct')continue;const idx=answerLetters.findIndex((ch,j)=>ch===word[i]&&!used[j]);if(idx!==-1){result[i]='present';used[idx]=true;}}
+this.wordleGuesses.push({word,result});this.wordleRow++;this.renderWordleGrid();inp.value='';
+if(word===this.wordleAnswer){this.wordleOver=true;this.playSound('win');this.vibrate([30,50,30,50,100]);setTimeout(()=>this.showArcadeResult('SOLVED!','Guessed in '+this.wordleRow+'/6 tries','🟩',()=>this.startWordle()),400);}
+else if(this.wordleRow>=6){this.wordleOver=true;this.playSound('lose');this.vibrate([100,50,100]);setTimeout(()=>this.showArcadeResult('OUT OF TRIES','The word was '+this.wordleAnswer,'😔',()=>this.startWordle()),400);}
+else{this.playSound('tick');}
+},
+showWordleMessage(text,type){const el=document.getElementById('wordle-message');el.textContent=text;el.className='message '+type;el.style.display='block';setTimeout(()=>{el.style.display='none';},1200);},
+
+/* ===== HANGMAN ===== */
+hangmanBank:['PYTHON','ELEPHANT','GUITAR','MOUNTAIN','RAINBOW','DOLPHIN','VOLCANO','GALAXY','PYRAMID','JACKET','UMBRELLA','DIAMOND','ISLAND','CASTLE','DESERT','JUNGLE','PENGUIN','ROCKET','SANDWICH','TRUMPET','WIZARD','YOGURT','BICYCLE','CACTUS','FOUNTAIN','HARMONY','ICEBERG','KEYBOARD','LANTERN','MERMAID'],
+startHangman(){this.hangmanWord=this.hangmanBank[Math.floor(Math.random()*this.hangmanBank.length)];this.hangmanGuessed=[];this.hangmanWrong=0;this.renderHangman();this.renderHangmanKeyboard();this.showScreen('hangman-game');},
+renderHangman(){const el=document.getElementById('hangman-word');el.textContent=this.hangmanWord.split('').map(ch=>this.hangmanGuessed.includes(ch)?ch:'_').join(' ');const livesEl=document.getElementById('hangman-lives');let hearts='';for(let i=0;i<this.hangmanMaxWrong;i++){hearts+=i<(this.hangmanMaxWrong-this.hangmanWrong)?'❤️':'🖤';}livesEl.textContent=hearts;},
+renderHangmanKeyboard(){const el=document.getElementById('hangman-letters');el.innerHTML='';'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(ch=>{const btn=document.createElement('div');btn.className='mini-key';btn.textContent=ch;btn.style.maxWidth='none';if(this.hangmanGuessed.includes(ch)){btn.classList.add(this.hangmanWord.includes(ch)?'used-correct':'used-absent');}else{btn.addEventListener('click',()=>this.guessHangmanLetter(ch));}el.appendChild(btn);});},
+guessHangmanLetter(ch){if(this.hangmanGuessed.includes(ch))return;this.hangmanGuessed.push(ch);if(!this.hangmanWord.includes(ch)){this.hangmanWrong++;this.playSound('wrong');this.vibrate([50,30,50]);}else{this.playSound('correct');this.vibrate(20);}
+this.renderHangman();this.renderHangmanKeyboard();
+const solved=this.hangmanWord.split('').every(ch2=>this.hangmanGuessed.includes(ch2));
+if(solved){this.playSound('win');this.vibrate([30,50,30,50,100]);setTimeout(()=>this.showArcadeResult('YOU WIN!','The word was '+this.hangmanWord,'🎉',()=>this.startHangman()),400);}
+else if(this.hangmanWrong>=this.hangmanMaxWrong){this.playSound('lose');this.vibrate([100,50,100]);setTimeout(()=>this.showArcadeResult('GAME OVER','The word was '+this.hangmanWord,'💀',()=>this.startHangman()),400);}
+},
+
+/* ===== ANAGRAM SCRAMBLE ===== */
+anagramBank:['TIGER','HOUSE','PLANET','GARDEN','WINDOW','BASKET','ROCKET','CASTLE','PENCIL','MARKET','SILVER','GOLDEN','WINTER','SUMMER','FRIEND','ANIMAL','FOREST','ISLAND','DRAGON','PUZZLE','YELLOW','PURPLE','ORANGE','MOTHER','FATHER','SISTER','TRAVEL','CAMERA','LAPTOP','MOBILE'],
+startAnagram(){this.anagramScore=0;this.anagramTimeLeft=60;document.getElementById('anagram-score').textContent='0';document.getElementById('anagram-timer').textContent='60';this.nextAnagramWord();this.showScreen('anagram-game');const inp=document.getElementById('anagram-input');if(inp&&!inp.dataset.listenerAdded){inp.addEventListener('keydown',(e)=>{if(e.key==='Enter'){e.preventDefault();this.submitAnagramGuess();}});inp.dataset.listenerAdded='1';}
+if(this.anagramInterval)clearInterval(this.anagramInterval);this.anagramInterval=setInterval(()=>{this.anagramTimeLeft--;const el=document.getElementById('anagram-timer');if(el)el.textContent=this.anagramTimeLeft;if(this.anagramTimeLeft<=0){clearInterval(this.anagramInterval);setTimeout(()=>this.showArcadeResult('TIME UP!','Score: '+this.anagramScore,'🔤',()=>this.startAnagram()),200);}},1000);
+},
+nextAnagramWord(){this.anagramWord=this.anagramBank[Math.floor(Math.random()*this.anagramBank.length)];let scrambled;do{scrambled=this.shuffleArray(this.anagramWord.split('')).join('');}while(scrambled===this.anagramWord);document.getElementById('anagram-scrambled').textContent=scrambled;const inp=document.getElementById('anagram-input');if(inp)inp.value='';},
+submitAnagramGuess(){const inp=document.getElementById('anagram-input');const val=(inp.value||'').toUpperCase().trim();if(!val)return;if(val===this.anagramWord){this.anagramScore++;document.getElementById('anagram-score').textContent=this.anagramScore;this.playSound('correct');this.vibrate(20);this.showAnagramMessage('Correct!','success');this.nextAnagramWord();}else{this.playSound('wrong');this.vibrate([50,30,50]);this.showAnagramMessage('Try again!','error');}},
+showAnagramMessage(text,type){const el=document.getElementById('anagram-message');el.textContent=text;el.className='message '+type;el.style.display='block';setTimeout(()=>{el.style.display='none';},900);},
+
+/* ===== MINESWEEPER ===== */
+startMinesweeper(){this.mineSize=9;this.mineCount=10;this.mineFlagMode=false;this.mineOver=false;this.mineRevealedCount=0;
+let cells=[];for(let i=0;i<this.mineSize*this.mineSize;i++)cells.push({mine:false,revealed:false,flagged:false,adjacent:0});
+let placed=0;while(placed<this.mineCount){const idx=Math.floor(Math.random()*cells.length);if(!cells[idx].mine){cells[idx].mine=true;placed++;}}
+for(let i=0;i<cells.length;i++){if(cells[i].mine)continue;const r=Math.floor(i/this.mineSize),c=i%this.mineSize;let count=0;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){if(dr===0&&dc===0)continue;const rr=r+dr,cc=c+dc;if(rr>=0&&rr<this.mineSize&&cc>=0&&cc<this.mineSize&&cells[rr*this.mineSize+cc].mine)count++;}cells[i].adjacent=count;}
+this.mineGrid=cells;document.getElementById('mine-count').textContent=this.mineCount;document.getElementById('mine-flag-toggle').textContent='🚩 Flag Mode: OFF';this.renderMinesweeper();this.showScreen('minesweeper-game');
+},
+renderMinesweeper(){const grid=document.getElementById('minesweeper-grid');grid.style.gridTemplateColumns='repeat('+this.mineSize+',1fr)';grid.innerHTML='';const numColors=['','#4dd0e1','#81c784','#ff8a65','#ba68c8','#ffd54f','#4dd0e1','#fff','#ccc'];
+this.mineGrid.forEach((cell,i)=>{const el=document.createElement('div');el.className='mine-cell'+(cell.revealed?' revealed':'')+(cell.flagged?' flagged':'');
+if(cell.revealed){if(cell.mine){el.classList.add('mine-hit');el.textContent='💣';}else if(cell.adjacent>0){el.textContent=cell.adjacent;el.style.color=numColors[cell.adjacent]||'#fff';}}
+else if(cell.flagged){el.textContent='🚩';}
+el.addEventListener('click',()=>this.tapMineCell(i));grid.appendChild(el);});
+},
+toggleMineFlagMode(){this.mineFlagMode=!this.mineFlagMode;document.getElementById('mine-flag-toggle').textContent='🚩 Flag Mode: '+(this.mineFlagMode?'ON':'OFF');},
+tapMineCell(i){if(this.mineOver)return;const cell=this.mineGrid[i];if(cell.revealed)return;
+if(this.mineFlagMode){if(!cell.revealed){cell.flagged=!cell.flagged;this.playSound('tick');const flagged=this.mineGrid.filter(c=>c.flagged).length;document.getElementById('mine-count').textContent=Math.max(0,this.mineCount-flagged);this.renderMinesweeper();}return;}
+if(cell.flagged)return;
+if(cell.mine){cell.revealed=true;this.mineOver=true;this.mineGrid.forEach(c=>{if(c.mine)c.revealed=true;});this.renderMinesweeper();this.playSound('lose');this.vibrate([100,50,100,50,200]);setTimeout(()=>this.showArcadeResult('BOOM!','You hit a mine','💥',()=>this.startMinesweeper()),300);return;}
+this.revealMineCell(i);this.renderMinesweeper();
+const totalSafe=this.mineGrid.length-this.mineCount;const revealed=this.mineGrid.filter(c=>c.revealed&&!c.mine).length;
+if(revealed>=totalSafe){this.mineOver=true;this.playSound('win');this.vibrate([30,50,30,50,100]);setTimeout(()=>this.showArcadeResult('CLEARED!','All safe cells revealed!','🏆',()=>this.startMinesweeper()),300);}
+},
+revealMineCell(i){const cell=this.mineGrid[i];if(cell.revealed||cell.flagged)return;cell.revealed=true;
+if(cell.adjacent===0){const r=Math.floor(i/this.mineSize),c=i%this.mineSize;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){if(dr===0&&dc===0)continue;const rr=r+dr,cc=c+dc;if(rr>=0&&rr<this.mineSize&&cc>=0&&cc<this.mineSize)this.revealMineCell(rr*this.mineSize+cc);}}
+},
+
+/* ===== COLOR FLOOD ===== */
+startColorFlood(){this.floodSize=12;this.floodMaxMoves=25;this.floodMoves=0;this.floodGrid=[];for(let i=0;i<this.floodSize*this.floodSize;i++)this.floodGrid.push(Math.floor(Math.random()*this.floodColors.length));
+document.getElementById('flood-moves').textContent='0/'+this.floodMaxMoves;this.renderColorFlood();this.renderFloodPalette();this.showScreen('colorflood-game');
+},
+renderColorFlood(){const grid=document.getElementById('colorflood-grid');grid.style.gridTemplateColumns='repeat('+this.floodSize+',1fr)';grid.innerHTML='';this.floodGrid.forEach(colorIdx=>{const el=document.createElement('div');el.className='flood-cell';el.style.background=this.floodColors[colorIdx];grid.appendChild(el);});},
+renderFloodPalette(){const el=document.getElementById('flood-palette');el.innerHTML='';this.floodColors.forEach((color,idx)=>{const sw=document.createElement('div');sw.className='flood-swatch';sw.style.background=color;sw.addEventListener('click',()=>this.pickFloodColor(idx));el.appendChild(sw);});},
+pickFloodColor(colorIdx){const current=this.floodGrid[0];if(colorIdx===current)return;this.floodMoves++;
+const stack=[0];const visited=new Set();visited.add(0);
+while(stack.length){const i=stack.pop();this.floodGrid[i]=colorIdx;const r=Math.floor(i/this.floodSize),c=i%this.floodSize;
+[[r-1,c],[r+1,c],[r,c-1],[r,c+1]].forEach(([rr,cc])=>{if(rr>=0&&rr<this.floodSize&&cc>=0&&cc<this.floodSize){const j=rr*this.floodSize+cc;if(!visited.has(j)&&this.floodGrid[j]===current){visited.add(j);stack.push(j);}}});
+}
+document.getElementById('flood-moves').textContent=this.floodMoves+'/'+this.floodMaxMoves;this.renderColorFlood();this.playSound('tick');
+const allSame=this.floodGrid.every(c=>c===colorIdx);
+if(allSame){this.playSound('win');this.vibrate([30,50,30,50,100]);setTimeout(()=>this.showArcadeResult('FLOODED!','Solved in '+this.floodMoves+' moves','🎉',()=>this.startColorFlood()),300);}
+else if(this.floodMoves>=this.floodMaxMoves){this.playSound('lose');this.vibrate([100,50,100]);setTimeout(()=>this.showArcadeResult('OUT OF MOVES','Try again!','😔',()=>this.startColorFlood()),300);}
+},
+
+/* ===== CONNECT FOUR ===== */
+newConnect4Game(){this.c4Board=Array(42).fill(null);this.c4CurrentPlayer='red';this.c4GameOver=false;document.getElementById('c4-status').textContent='Your turn (Red)';this.renderConnect4();this.showScreen('connect4-game');},
+renderConnect4(){const grid=document.getElementById('c4-grid');grid.innerHTML='';for(let r=0;r<6;r++){for(let c=0;c<7;c++){const cell=document.createElement('div');cell.className='c4-cell';cell.addEventListener('click',()=>this.dropConnect4(c));grid.appendChild(cell);}}
+this.paintConnect4();
+},
+paintConnect4(){const grid=document.getElementById('c4-grid');const cells=grid.children;for(let i=0;i<42;i++){if(cells[i])cells[i].className='c4-cell'+(this.c4Board[i]?' '+this.c4Board[i]:'');}},
+dropConnect4(col){if(this.c4GameOver||this.c4CurrentPlayer!=='red')return;const row=this.connect4DropRow(this.c4Board,col);if(row===-1)return;this.c4Board[row*7+col]='red';this.paintConnect4();this.playSound('tick');
+if(this.connect4CheckWin(this.c4Board,'red')){this.finishConnect4('You win! 🎉','red');return;}
+if(this.c4Board.every(v=>v)){this.finishConnect4("It's a draw!",null);return;}
+this.c4CurrentPlayer='yellow';document.getElementById('c4-status').textContent="AI's turn...";
+setTimeout(()=>{const aiCol=this.connect4BestMove(this.c4Board);const aiRow=this.connect4DropRow(this.c4Board,aiCol);if(aiRow!==-1){this.c4Board[aiRow*7+aiCol]='yellow';this.paintConnect4();}
+if(this.connect4CheckWin(this.c4Board,'yellow')){this.finishConnect4('AI wins!','yellow');return;}
+if(this.c4Board.every(v=>v)){this.finishConnect4("It's a draw!",null);return;}
+this.c4CurrentPlayer='red';document.getElementById('c4-status').textContent='Your turn (Red)';
+},500);
+},
+connect4DropRow(board,col){for(let r=5;r>=0;r--){if(!board[r*7+col])return r;}return -1;},
+connect4CheckWin(board,player){for(let r=0;r<6;r++)for(let c=0;c<7;c++){if(board[r*7+c]!==player)continue;
+if(c<=3&&[0,1,2,3].every(k=>board[r*7+c+k]===player))return true;
+if(r<=2&&[0,1,2,3].every(k=>board[(r+k)*7+c]===player))return true;
+if(r<=2&&c<=3&&[0,1,2,3].every(k=>board[(r+k)*7+c+k]===player))return true;
+if(r<=2&&c>=3&&[0,1,2,3].every(k=>board[(r+k)*7+c-k]===player))return true;
+}return false;},
+connect4BestMove(board){const valid=[];for(let c=0;c<7;c++){if(this.connect4DropRow(board,c)!==-1)valid.push(c);}
+for(const c of valid){const b=[...board];const r=this.connect4DropRow(b,c);b[r*7+c]='yellow';if(this.connect4CheckWin(b,'yellow'))return c;}
+for(const c of valid){const b=[...board];const r=this.connect4DropRow(b,c);b[r*7+c]='red';if(this.connect4CheckWin(b,'red'))return c;}
+const center=valid.includes(3)?3:null;if(center!==null&&Math.random()<0.5)return center;
+return valid[Math.floor(Math.random()*valid.length)];
+},
+finishConnect4(msg,winner){this.c4GameOver=true;document.getElementById('c4-status').textContent=msg;if(winner==='red'){this.playSound('win');this.vibrate([30,50,30,50,100]);}else if(winner==='yellow'){this.playSound('lose');this.vibrate([100,50,100]);}else{this.playSound('tick');}},
+
+/* ===== BREAKOUT ===== */
+startBreakout(){this.breakoutScore=0;this.breakoutLives=3;this.breakoutRunning=true;document.getElementById('breakout-score').textContent='0';document.getElementById('breakout-lives').textContent='3';
+const canvas=document.getElementById('breakout-canvas');this.setupCanvasDPI(canvas,300,400);
+this.breakoutPaddleX=110;this.breakoutBall={x:150,y:300,vx:2.5,vy:-3.2,r:6};
+this.breakoutBricks=[];const cols=8,rows=5;for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){this.breakoutBricks.push({x:c*36+6,y:r*18+30,w:32,h:14,alive:true});}
+if(!canvas.dataset.dragAdded){let dragging=false;const moveHandler=(clientX)=>{const rect=canvas.getBoundingClientRect();const x=clientX-rect.left;this.breakoutPaddleX=Math.max(0,Math.min(300-60,x-30));};
+canvas.addEventListener('touchstart',(e)=>{dragging=true;moveHandler(e.touches[0].clientX);},{passive:true});
+canvas.addEventListener('touchmove',(e)=>{if(dragging){e.preventDefault();moveHandler(e.touches[0].clientX);}},{passive:false});
+canvas.addEventListener('touchend',()=>{dragging=false;});
+canvas.addEventListener('mousedown',(e)=>{dragging=true;moveHandler(e.clientX);});
+canvas.addEventListener('mousemove',(e)=>{if(dragging)moveHandler(e.clientX);});
+canvas.addEventListener('mouseup',()=>{dragging=false;});
+canvas.dataset.dragAdded='1';}
+this.showScreen('breakout-game');if(this.breakoutRAF)cancelAnimationFrame(this.breakoutRAF);this.breakoutLoop();
+},
+breakoutLoop(){if(!this.breakoutRunning)return;const canvas=document.getElementById('breakout-canvas');const ctx=canvas.getContext('2d');const w=300,h=400;
+const ball=this.breakoutBall;ball.x+=ball.vx;ball.y+=ball.vy;
+if(ball.x<=ball.r||ball.x>=w-ball.r)ball.vx*=-1;
+if(ball.y<=ball.r)ball.vy*=-1;
+const paddleY=h-20;
+if(ball.y+ball.r>=paddleY&&ball.y+ball.r<=paddleY+10&&ball.x>=this.breakoutPaddleX&&ball.x<=this.breakoutPaddleX+60&&ball.vy>0){ball.vy*=-1;const hitPos=(ball.x-this.breakoutPaddleX)/60-0.5;ball.vx+=hitPos*2;this.playSound('tick');}
+this.breakoutBricks.forEach(b=>{if(!b.alive)return;if(ball.x+ball.r>b.x&&ball.x-ball.r<b.x+b.w&&ball.y+ball.r>b.y&&ball.y-ball.r<b.y+b.h){b.alive=false;ball.vy*=-1;this.breakoutScore+=10;document.getElementById('breakout-score').textContent=this.breakoutScore;this.playSound('correct');}});
+if(ball.y>h){this.breakoutLives--;document.getElementById('breakout-lives').textContent=this.breakoutLives;this.playSound('wrong');this.vibrate([50,30,50]);
+if(this.breakoutLives<=0){this.breakoutRunning=false;this.playSound('lose');setTimeout(()=>this.showArcadeResult('GAME OVER','Score: '+this.breakoutScore,'🧱',()=>this.startBreakout()),300);return;}
+ball.x=150;ball.y=300;ball.vx=2.5;ball.vy=-3.2;}
+if(this.breakoutBricks.every(b=>!b.alive)){this.breakoutRunning=false;this.playSound('win');this.vibrate([30,50,30,50,100]);setTimeout(()=>this.showArcadeResult('YOU WIN!','Score: '+this.breakoutScore,'🏆',()=>this.startBreakout()),300);return;}
+ctx.fillStyle='#050508';ctx.fillRect(0,0,w,h);
+ctx.fillStyle='#00d4ff';ctx.fillRect(this.breakoutPaddleX,paddleY,60,10);
+ctx.beginPath();ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+this.breakoutBricks.forEach(b=>{if(b.alive){ctx.fillStyle='hsl('+((b.y*3)%360)+',70%,55%)';ctx.fillRect(b.x,b.y,b.w,b.h);}});
+this.breakoutRAF=requestAnimationFrame(()=>this.breakoutLoop());
+},
+
+/* ===== PONG ===== */
+startPong(){this.pongScorePlayer=0;this.pongScoreAi=0;this.pongPlayerY=170;this.pongAiY=170;this.resetPongBall();this.pongRunning=true;document.getElementById('pong-score').textContent='0 - 0';
+const canvas=document.getElementById('pong-canvas');this.setupCanvasDPI(canvas,300,400);
+if(!canvas.dataset.dragAdded){let dragging=false;const moveHandler=(clientY)=>{const rect=canvas.getBoundingClientRect();const y=clientY-rect.top;this.pongPlayerY=Math.max(0,Math.min(400-60,y-30));};
+canvas.addEventListener('touchstart',(e)=>{dragging=true;moveHandler(e.touches[0].clientY);},{passive:true});
+canvas.addEventListener('touchmove',(e)=>{if(dragging){e.preventDefault();moveHandler(e.touches[0].clientY);}},{passive:false});
+canvas.addEventListener('touchend',()=>{dragging=false;});
+canvas.addEventListener('mousedown',(e)=>{dragging=true;moveHandler(e.clientY);});
+canvas.addEventListener('mousemove',(e)=>{if(dragging)moveHandler(e.clientY);});
+canvas.addEventListener('mouseup',()=>{dragging=false;});
+canvas.dataset.dragAdded='1';}
+this.showScreen('pong-game');if(this.pongRAF)cancelAnimationFrame(this.pongRAF);this.pongLoop();
+},
+resetPongBall(){this.pongBallX=150;this.pongBallY=200;this.pongBallVX=(Math.random()<0.5?1:-1)*3;this.pongBallVY=(Math.random()*4-2);},
+pongLoop(){if(!this.pongRunning)return;const canvas=document.getElementById('pong-canvas');const ctx=canvas.getContext('2d');const w=300,h=400;
+this.pongBallX+=this.pongBallVX;this.pongBallY+=this.pongBallVY;
+if(this.pongBallY<=5||this.pongBallY>=h-5)this.pongBallVY*=-1;
+const aiCenter=this.pongAiY+30;if(aiCenter<this.pongBallY-10)this.pongAiY+=2.2;else if(aiCenter>this.pongBallY+10)this.pongAiY-=2.2;this.pongAiY=Math.max(0,Math.min(h-60,this.pongAiY));
+if(this.pongBallX<=18&&this.pongBallY>=this.pongPlayerY&&this.pongBallY<=this.pongPlayerY+60&&this.pongBallVX<0){this.pongBallVX*=-1.05;this.playSound('tick');}
+if(this.pongBallX>=w-18&&this.pongBallY>=this.pongAiY&&this.pongBallY<=this.pongAiY+60&&this.pongBallVX>0){this.pongBallVX*=-1.05;}
+if(this.pongBallX<0){this.pongScoreAi++;document.getElementById('pong-score').textContent=this.pongScorePlayer+' - '+this.pongScoreAi;this.playSound('wrong');this.resetPongBall();}
+if(this.pongBallX>w){this.pongScorePlayer++;document.getElementById('pong-score').textContent=this.pongScorePlayer+' - '+this.pongScoreAi;this.playSound('correct');this.resetPongBall();}
+if(this.pongScorePlayer>=5||this.pongScoreAi>=5){this.pongRunning=false;const won=this.pongScorePlayer>=5;this.playSound(won?'win':'lose');this.vibrate(won?[30,50,30,50,100]:[100,50,100]);setTimeout(()=>this.showArcadeResult(won?'YOU WIN!':'AI WINS','Final score: '+this.pongScorePlayer+' - '+this.pongScoreAi,won?'🏓':'😔',()=>this.startPong()),300);return;}
+ctx.fillStyle='#050508';ctx.fillRect(0,0,w,h);
+ctx.fillStyle='#00d4ff';ctx.fillRect(8,this.pongPlayerY,10,60);
+ctx.fillStyle='#ff6b6b';ctx.fillRect(w-18,this.pongAiY,10,60);
+ctx.beginPath();ctx.arc(this.pongBallX,this.pongBallY,6,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+this.pongRAF=requestAnimationFrame(()=>this.pongLoop());
+},
+
+/* ===== ROCK PAPER SCISSORS ===== */
+newRpsGame(){this.rpsWins=0;this.rpsDraws=0;this.rpsLosses=0;document.getElementById('rps-wins').textContent='0';document.getElementById('rps-draws').textContent='0';document.getElementById('rps-losses').textContent='0';document.getElementById('rps-status').textContent='Pick one!';this.showScreen('rps-game');},
+playRps(choice){const options=['rock','paper','scissors'];const ai=options[Math.floor(Math.random()*3)];let result;
+if(choice===ai)result='draw';else if((choice==='rock'&&ai==='scissors')||(choice==='paper'&&ai==='rock')||(choice==='scissors'&&ai==='paper'))result='win';else result='lose';
+const emoji={rock:'🪨',paper:'📄',scissors:'✂️'};
+if(result==='draw'){this.rpsDraws++;document.getElementById('rps-draws').textContent=this.rpsDraws;document.getElementById('rps-status').textContent="Draw! Both picked "+emoji[choice];this.playSound('tick');}
+else if(result==='win'){this.rpsWins++;document.getElementById('rps-wins').textContent=this.rpsWins;document.getElementById('rps-status').textContent='You win! '+emoji[choice]+' beats '+emoji[ai];this.playSound('correct');this.vibrate(20);}
+else{this.rpsLosses++;document.getElementById('rps-losses').textContent=this.rpsLosses;document.getElementById('rps-status').textContent='AI wins! '+emoji[ai]+' beats '+emoji[choice];this.playSound('wrong');this.vibrate([50,30,50]);}
+},
+
+/* ===== STROOP TEST ===== */
+stroopColors:[{name:'RED',hex:'#ff1744'},{name:'GREEN',hex:'#00e676'},{name:'BLUE',hex:'#00d4ff'},{name:'YELLOW',hex:'#ffea00'},{name:'PURPLE',hex:'#ba68c8'}],
+startStroop(){this.stroopScore=0;this.stroopTimeLeft=30;document.getElementById('stroop-score').textContent='0';document.getElementById('stroop-timer').textContent='30';this.nextStroopRound();this.showScreen('stroop-game');
+if(this.stroopInterval)clearInterval(this.stroopInterval);this.stroopInterval=setInterval(()=>{this.stroopTimeLeft--;const el=document.getElementById('stroop-timer');if(el)el.textContent=this.stroopTimeLeft;if(this.stroopTimeLeft<=0){clearInterval(this.stroopInterval);setTimeout(()=>this.showArcadeResult('TIME UP!','Score: '+this.stroopScore,'🌈',()=>this.startStroop()),200);}},1000);
+},
+nextStroopRound(){const wordObj=this.stroopColors[Math.floor(Math.random()*this.stroopColors.length)];let inkObj;do{inkObj=this.stroopColors[Math.floor(Math.random()*this.stroopColors.length)];}while(inkObj.name===wordObj.name&&this.stroopColors.length>1&&Math.random()<0.85);
+this.stroopAnswer=inkObj.name;const wordEl=document.getElementById('stroop-word');wordEl.textContent=wordObj.name;wordEl.style.color=inkObj.hex;
+const options=this.shuffleArray([...this.stroopColors]).slice(0,4);if(!options.find(o=>o.name===inkObj.name)){options[0]=inkObj;}
+const optEl=document.getElementById('stroop-options');optEl.innerHTML='';this.shuffleArray(options).forEach(opt=>{const div=document.createElement('div');div.className='trivia-option';div.textContent=opt.name;div.addEventListener('click',()=>this.answerStroop(opt.name));optEl.appendChild(div);});
+},
+answerStroop(name){if(name===this.stroopAnswer){this.stroopScore++;document.getElementById('stroop-score').textContent=this.stroopScore;this.playSound('correct');this.vibrate(20);}else{this.playSound('wrong');this.vibrate([50,30,50]);}this.nextStroopRound();},
+
+setupCanvasDPI(canvas,cssW,cssH){if(!canvas)return null;const dpr=window.devicePixelRatio||1;canvas.width=Math.round(cssW*dpr);canvas.height=Math.round(cssH*dpr);canvas.style.width=cssW+'px';canvas.style.height=cssH+'px';const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return ctx;},
 
 /* ===== WORD SEARCH ===== */
 startWordSearch(){const size=10;const dirs=[[0,1],[1,0],[1,1],[-1,1]];let words=this.shuffleArray([...this.wordSearchPool]).slice(0,8);let grid=Array.from({length:size},()=>Array(size).fill(null));let placements=[];
@@ -1192,7 +1688,7 @@ if(moved){this.spawn2048Tile();this.render2048();this.playSound('tick');if(!this
 has2048Moves(){for(let r=0;r<4;r++)for(let c=0;c<4;c++){if(this.board2048[r][c]===0)return true;if(c<3&&this.board2048[r][c]===this.board2048[r][c+1])return true;if(r<3&&this.board2048[r][c]===this.board2048[r+1][c])return true;}return false;},
 
 /* ===== SNAKE ===== */
-startSnake(){this.snakeCols=15;this.snakeRows=15;this.snakeCell=20;this.snakeSegments=[{x:7,y:7},{x:6,y:7},{x:5,y:7}];this.snakeDir={x:1,y:0};this.snakeNextDir={x:1,y:0};this.snakeScore=0;this.spawnSnakeFood();document.getElementById('snake-score').textContent='0';this.showScreen('snake-game');if(this.snakeInterval)clearInterval(this.snakeInterval);this.snakeInterval=setInterval(()=>this.snakeTick(),140);this.drawSnake();},
+startSnake(){this.snakeCols=15;this.snakeRows=15;this.snakeCell=20;this.snakeSegments=[{x:7,y:7},{x:6,y:7},{x:5,y:7}];this.snakeDir={x:1,y:0};this.snakeNextDir={x:1,y:0};this.snakeScore=0;this.spawnSnakeFood();document.getElementById('snake-score').textContent='0';this.showScreen('snake-game');const canvas=document.getElementById('snake-canvas');this.setupCanvasDPI(canvas,this.snakeCols*this.snakeCell,this.snakeRows*this.snakeCell);if(this.snakeInterval)clearInterval(this.snakeInterval);this.snakeInterval=setInterval(()=>this.snakeTick(),140);this.drawSnake();},
 spawnSnakeFood(){let pos;do{pos={x:Math.floor(Math.random()*this.snakeCols),y:Math.floor(Math.random()*this.snakeRows)};}while(this.snakeSegments.some(s=>s.x===pos.x&&s.y===pos.y));this.snakeFood=pos;},
 setSnakeDir(x,y){if(this.snakeDir.x===-x&&this.snakeDir.y===-y)return;this.snakeNextDir={x,y};},
 snakeTick(){this.snakeDir=this.snakeNextDir;const head={x:this.snakeSegments[0].x+this.snakeDir.x,y:this.snakeSegments[0].y+this.snakeDir.y};
@@ -1200,7 +1696,7 @@ if(head.x<0||head.x>=this.snakeCols||head.y<0||head.y>=this.snakeRows||this.snak
 this.snakeSegments.unshift(head);
 if(head.x===this.snakeFood.x&&head.y===this.snakeFood.y){this.snakeScore++;document.getElementById('snake-score').textContent=this.snakeScore;this.playSound('correct');this.vibrate(20);this.spawnSnakeFood();}else{this.snakeSegments.pop();}
 this.drawSnake();},
-drawSnake(){const canvas=document.getElementById('snake-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');const cell=this.snakeCell;ctx.fillStyle='#050508';ctx.fillRect(0,0,canvas.width,canvas.height);
+drawSnake(){const canvas=document.getElementById('snake-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');const cell=this.snakeCell;ctx.fillStyle='#050508';ctx.fillRect(0,0,this.snakeCols*this.snakeCell,this.snakeRows*this.snakeCell);
 ctx.fillStyle='#ff1744';ctx.fillRect(this.snakeFood.x*cell+2,this.snakeFood.y*cell+2,cell-4,cell-4);
 this.snakeSegments.forEach((s,i)=>{ctx.fillStyle=i===0?'#00d4ff':'#00e676';ctx.fillRect(s.x*cell+1,s.y*cell+1,cell-2,cell-2);});
 },
@@ -1221,13 +1717,15 @@ whackMole(i){if(i!==this.whackActiveHole||this.whackTimeLeft<=0)return;this.whac
 /* ===== FLAPPY TAP ===== */
 startFlappy(){this.flappyBird={y:180,vy:0};this.flappyPipes=[];this.flappyScore=0;this.flappyRunning=true;document.getElementById('flappy-score').textContent='0';this.showScreen('flappy-game');
 const canvas=document.getElementById('flappy-canvas');
+this.flappyCanvasW=300;this.flappyCanvasH=400;
+this.setupCanvasDPI(canvas,this.flappyCanvasW,this.flappyCanvasH);
 if(!canvas.dataset.listenerAdded){canvas.addEventListener('click',()=>this.flapFlappy());canvas.addEventListener('touchstart',(e)=>{e.preventDefault();this.flapFlappy();},{passive:false});canvas.dataset.listenerAdded='true';}
 this.flappyLastPipe=0;
 if(this.flappyRAF)cancelAnimationFrame(this.flappyRAF);
 this.flappyLoop();
 },
 flapFlappy(){if(!this.flappyRunning)return;this.flappyBird.vy=-6.5;this.playSound('tick');},
-flappyLoop(){if(!this.flappyRunning)return;const canvas=document.getElementById('flappy-canvas');const ctx=canvas.getContext('2d');const w=canvas.width,h=canvas.height;
+flappyLoop(){if(!this.flappyRunning)return;const canvas=document.getElementById('flappy-canvas');const ctx=canvas.getContext('2d');const w=this.flappyCanvasW,h=this.flappyCanvasH;
 this.flappyBird.vy+=0.35;this.flappyBird.y+=this.flappyBird.vy;
 if(Date.now()-this.flappyLastPipe>1400){this.flappyLastPipe=Date.now();const gapY=60+Math.random()*(h-200);this.flappyPipes.push({x:w,gapY,gapHeight:130,passed:false});}
 this.flappyPipes.forEach(p=>p.x-=2.6);
@@ -1239,9 +1737,19 @@ if(birdX+birdSize>p.x&&birdX<p.x+60){if(this.flappyBird.y<p.gapY||this.flappyBir
 });
 ctx.fillStyle='#0a0a1f';ctx.fillRect(0,0,w,h);
 ctx.fillStyle='#00e676';this.flappyPipes.forEach(p=>{ctx.fillRect(p.x,0,60,p.gapY);ctx.fillRect(p.x,p.gapY+p.gapHeight,60,h-(p.gapY+p.gapHeight));});
-ctx.fillStyle='#00d4ff';ctx.beginPath();ctx.arc(birdX+birdSize/2,this.flappyBird.y+birdSize/2,birdSize/2,0,Math.PI*2);ctx.fill();
+this.drawFlappyBird(ctx,birdX+birdSize/2,this.flappyBird.y+birdSize/2,this.flappyBird.vy);
 if(collided){this.flappyRunning=false;this.playSound('lose');this.vibrate([100,50,100,50,200]);setTimeout(()=>this.showArcadeResult('GAME OVER','Score: '+this.flappyScore,'🐦',()=>this.startFlappy()),300);return;}
 this.flappyRAF=requestAnimationFrame(()=>this.flappyLoop());
+},
+drawFlappyBird(ctx,cx,cy,vy){const angle=Math.max(-0.5,Math.min(0.9,vy*0.08));const wingUp=vy<0;
+ctx.save();ctx.translate(cx,cy);ctx.rotate(angle);
+ctx.fillStyle='#ffca28';ctx.beginPath();ctx.ellipse(0,0,11,9,0,0,Math.PI*2);ctx.fill();
+ctx.fillStyle='#ff9100';ctx.beginPath();ctx.ellipse(0,2,9,6,0,0,Math.PI*2);ctx.fill();
+ctx.fillStyle='#ffca28';ctx.beginPath();if(wingUp){ctx.ellipse(-2,-6,6,4,-0.4,0,Math.PI*2);}else{ctx.ellipse(-2,4,6,4,0.4,0,Math.PI*2);}ctx.fill();
+ctx.fillStyle='#ff6d00';ctx.beginPath();ctx.moveTo(9,-1);ctx.lineTo(17,1);ctx.lineTo(9,4);ctx.closePath();ctx.fill();
+ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(4,-4,3.2,0,Math.PI*2);ctx.fill();
+ctx.fillStyle='#000';ctx.beginPath();ctx.arc(5,-4,1.5,0,Math.PI*2);ctx.fill();
+ctx.restore();
 },
 
 /* ===== TRIVIA QUIZ ===== */
@@ -1274,7 +1782,7 @@ levelResultRetry(){document.getElementById('overlay-level-result').classList.rem
 levelResultToSelect(){document.getElementById('overlay-level-result').classList.remove('active');this.levelModeActive=false;this.renderLevelGrid();this.showScreen('level-select');},
 
 /* ===== TYPING CHALLENGE ===== */
-selectMode(mode){this.currentMode=mode;document.querySelectorAll('.mode-card').forEach(c=>c.classList.remove('selected'));document.querySelector('.mode-card[data-mode="'+mode+'"]').classList.add('selected');const timeCard=document.getElementById('time-setup-card');if(mode==='endless'){timeCard.style.display='none';}else if(mode==='speed'){timeCard.style.display='block';this.timeLimit=10;document.querySelectorAll('#time-presets .btn').forEach(b=>b.classList.remove('selected'));document.querySelector('#time-presets .btn[data-time="10"]').classList.add('selected');}else if(mode==='words'||mode==='sentences'){timeCard.style.display='block';this.timeLimit=60;document.querySelectorAll('#time-presets .btn').forEach(b=>b.classList.remove('selected'));document.querySelector('#time-presets .btn[data-time="60"]').classList.add('selected');}else{timeCard.style.display='block';}this.saveData();},
+selectMode(mode){this.currentMode=mode;document.querySelectorAll('.mode-card').forEach(c=>c.classList.remove('selected'));document.querySelector('.mode-card[data-mode="'+mode+'"]').classList.add('selected');const timeCard=document.getElementById('time-setup-card');const endlessNote=document.getElementById('endless-note-card');if(mode==='endless'){timeCard.style.display='none';if(endlessNote)endlessNote.style.display='block';}else if(mode==='speed'){timeCard.style.display='block';if(endlessNote)endlessNote.style.display='none';this.timeLimit=10;document.querySelectorAll('#time-presets .btn').forEach(b=>b.classList.remove('selected'));document.querySelector('#time-presets .btn[data-time="10"]').classList.add('selected');}else if(mode==='words'||mode==='sentences'){timeCard.style.display='block';if(endlessNote)endlessNote.style.display='none';this.timeLimit=60;document.querySelectorAll('#time-presets .btn').forEach(b=>b.classList.remove('selected'));document.querySelector('#time-presets .btn[data-time="60"]').classList.add('selected');}else{timeCard.style.display='block';if(endlessNote)endlessNote.style.display='none';}this.saveData();},
 
 setupEventListeners(){
 document.querySelectorAll('#time-presets .btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('#time-presets .btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');this.timeLimit=parseInt(btn.dataset.time);document.getElementById('custom-time').value='';});});
@@ -1307,9 +1815,11 @@ startGame(){this.currentIndex=0;this.score=0;this.correctInputs=0;this.wrongInpu
 if(this.currentMode==='words'||this.currentMode==='sentences'){const source=this.currentMode==='sentences'?this.sentences:this.words;this.wordList=this.shuffleArray([...source]);this.currentWord=this.wordList[0];this.charIndex=0;}
 else if(this.currentMode==='endless'){this.sequence=[...this.letters];this.currentLetter=this.letters[0];}
 else{this.sequence=this.generateSequence(this.currentMode);this.currentLetter=this.sequence[0];}
-this.timeRemaining=this.currentMode==='endless'?0:this.timeLimit;this.updateGameUI();this.showScreen('game');if(this.currentMode!=='endless'){this.startTimer();}const input=document.getElementById('game-input');input.value='';if(this.settings.autofocus)input.focus();this.saveData();},
+this.timeRemaining=this.currentMode==='endless'?0:this.timeLimit;this.updateGameUI();this.showScreen('game');if(this.currentMode==='endless'){this.startElapsedTimer();}else{this.startTimer();}const input=document.getElementById('game-input');input.value='';if(this.settings.autofocus)input.focus();this.saveData();},
 
 startTimer(){if(this.timerInterval)clearInterval(this.timerInterval);this.timerInterval=setInterval(()=>{if(this.gamePaused)return;this.timeRemaining-=0.1;if(this.timeRemaining<=0){this.timeRemaining=0;if(this.currentMode==='words'||this.currentMode==='sentences'){this.gameOverWords();}else{this.gameOver();}}this.updateTimerUI();},100);},
+
+startElapsedTimer(){if(this.timerInterval)clearInterval(this.timerInterval);this.timerInterval=setInterval(()=>{if(this.gamePaused)return;this.updateTimerUI();},1000);},
 
 updateTimerUI(){const el=document.getElementById('game-timer');if(this.currentMode==='endless'){const elapsed=Math.floor((Date.now()-this.startTime)/1000);const mins=Math.floor(elapsed/60);const secs=elapsed%60;el.textContent=mins.toString().padStart(2,'0')+':'+secs.toString().padStart(2,'0');document.getElementById('timer-label').textContent='ELAPSED';return;}const secs=Math.ceil(this.timeRemaining);const mins=Math.floor(secs/60);const rem=secs%60;el.textContent=mins.toString().padStart(2,'0')+':'+rem.toString().padStart(2,'0');document.getElementById('timer-label').textContent='TIME';el.classList.remove('warning','danger');if(this.timeRemaining<=3){el.classList.add('danger');}else if(this.timeRemaining<=5){el.classList.add('warning');}},
 
@@ -1342,7 +1852,7 @@ pauseGame(){if(!this.gameRunning)return;this.gamePaused=true;document.getElement
 resumeGame(){this.gamePaused=false;document.getElementById('overlay-pause').classList.remove('active');const input=document.getElementById('game-input');if(this.settings.autofocus)input.focus();},
 confirmQuit(){this.gamePaused=true;document.getElementById('overlay-quit').classList.add('active');},
 hideOverlay(id){document.getElementById(id).classList.remove('active');if(id==='overlay-quit'){this.gamePaused=false;const input=document.getElementById('game-input');if(input&&this.settings.autofocus)input.focus();}},
-stopAllGameActivity(){this.gameRunning=false;this.gamePaused=false;this.mathRunning=false;this.levelModeActive=false;this.flappyRunning=false;this.tttGameOver=true;if(this.timerInterval)clearInterval(this.timerInterval);if(this.mathTimerInterval)clearInterval(this.mathTimerInterval);if(this.memoryTimerInterval)clearInterval(this.memoryTimerInterval);if(this.reactionTimeout)clearTimeout(this.reactionTimeout);if(this.seqtapTimerInterval)clearInterval(this.seqtapTimerInterval);if(this.wsTimerInterval)clearInterval(this.wsTimerInterval);if(this.snakeInterval)clearInterval(this.snakeInterval);if(this.whackInterval)clearInterval(this.whackInterval);if(this.whackSpawnTimeout)clearTimeout(this.whackSpawnTimeout);if(this.flappyRAF)cancelAnimationFrame(this.flappyRAF);document.getElementById('overlay-pause').classList.remove('active');document.getElementById('overlay-quit').classList.remove('active');document.getElementById('overlay-level-result').classList.remove('active');document.getElementById('overlay-arcade-result').classList.remove('active');},
+stopAllGameActivity(){this.gameRunning=false;this.gamePaused=false;this.mathRunning=false;this.levelModeActive=false;this.flappyRunning=false;this.tttGameOver=true;this.c4GameOver=true;this.mineOver=true;this.wordleOver=true;this.breakoutRunning=false;this.pongRunning=false;if(this.timerInterval)clearInterval(this.timerInterval);if(this.mathTimerInterval)clearInterval(this.mathTimerInterval);if(this.memoryTimerInterval)clearInterval(this.memoryTimerInterval);if(this.reactionTimeout)clearTimeout(this.reactionTimeout);if(this.seqtapTimerInterval)clearInterval(this.seqtapTimerInterval);if(this.wsTimerInterval)clearInterval(this.wsTimerInterval);if(this.snakeInterval)clearInterval(this.snakeInterval);if(this.whackInterval)clearInterval(this.whackInterval);if(this.whackSpawnTimeout)clearTimeout(this.whackSpawnTimeout);if(this.flappyRAF)cancelAnimationFrame(this.flappyRAF);if(this.anagramInterval)clearInterval(this.anagramInterval);if(this.stroopInterval)clearInterval(this.stroopInterval);if(this.breakoutRAF)cancelAnimationFrame(this.breakoutRAF);if(this.pongRAF)cancelAnimationFrame(this.pongRAF);document.getElementById('overlay-pause').classList.remove('active');document.getElementById('overlay-quit').classList.remove('active');document.getElementById('overlay-level-result').classList.remove('active');document.getElementById('overlay-arcade-result').classList.remove('active');},
 quitToHome(){this.stopAllGameActivity();this.showScreen('home');},
 navTo(id){this.stopAllGameActivity();this.showScreen(id);},
 
@@ -1362,7 +1872,7 @@ gameOverWords(){this.gameRunning=false;if(this.timerInterval)clearInterval(this.
 if(this.levelModeActive){this.handleLevelResult(false);return;}
 const bestKey=this.currentMode==='sentences'?'sentencesBest':'wordsBest';if(this.wordsTyped>this.stats[bestKey]){this.stats[bestKey]=this.wordsTyped;}this.stats.gamesPlayed++;this.stats.gamesLost++;this.saveData();this.playSound('lose');this.vibrate([100,50,100,50,200]);const label=this.currentMode==='sentences'?'Sentences Typed':'Words Typed';document.getElementById('go-progress').textContent=this.wordsTyped+(this.currentMode==='sentences'?' sentences':' words');document.getElementById('go-score').textContent=this.score;document.getElementById('go-accuracy').textContent=accuracy+'%';document.getElementById('go-streak').textContent=this.bestStreak;document.getElementById('go-subtitle').textContent='No lives left!';document.getElementById('go-extra-1-box').style.display='block';document.getElementById('go-extra-1').textContent=this.wordsTyped;document.getElementById('go-extra-1-label').textContent=label;document.getElementById('go-extra-2-box').style.display='none';this.showScreen('gameover');},
 
-gameOverEndless(){this.gameRunning=false;const accuracy=this.totalInputs>0?((this.correctInputs/this.totalInputs)*100).toFixed(1):0;const timeUsed=((Date.now()-this.startTime)/1000).toFixed(2);if(this.endlessLetters>this.stats.endlessBest){this.stats.endlessBest=this.endlessLetters;}this.stats.gamesPlayed++;this.stats.gamesLost++;this.saveData();this.playSound('lose');this.vibrate([100,50,100,50,200]);document.getElementById('go-progress').textContent=this.endlessLetters+' letters';document.getElementById('go-score').textContent=this.score;document.getElementById('go-accuracy').textContent=accuracy+'%';document.getElementById('go-streak').textContent=this.bestStreak;document.getElementById('go-subtitle').textContent='No lives left! Time: '+timeUsed+'s';document.getElementById('go-extra-1-box').style.display='block';document.getElementById('go-extra-1').textContent=this.endlessLetters;document.getElementById('go-extra-1-label').textContent='Letters';document.getElementById('go-extra-2-box').style.display='none';this.showScreen('gameover');},
+gameOverEndless(){this.gameRunning=false;if(this.timerInterval)clearInterval(this.timerInterval);const accuracy=this.totalInputs>0?((this.correctInputs/this.totalInputs)*100).toFixed(1):0;const timeUsed=((Date.now()-this.startTime)/1000).toFixed(2);if(this.endlessLetters>this.stats.endlessBest){this.stats.endlessBest=this.endlessLetters;}this.stats.gamesPlayed++;this.stats.gamesLost++;this.saveData();this.playSound('lose');this.vibrate([100,50,100,50,200]);document.getElementById('go-progress').textContent=this.endlessLetters+' letters';document.getElementById('go-score').textContent=this.score;document.getElementById('go-accuracy').textContent=accuracy+'%';document.getElementById('go-streak').textContent=this.bestStreak;document.getElementById('go-subtitle').textContent='No lives left! Time: '+timeUsed+'s';document.getElementById('go-extra-1-box').style.display='block';document.getElementById('go-extra-1').textContent=this.endlessLetters;document.getElementById('go-extra-1-label').textContent='Letters';document.getElementById('go-extra-2-box').style.display='none';this.showScreen('gameover');},
 
 restartGame(){this.levelModeActive=false;this.startCountdown();},
 
@@ -1380,7 +1890,7 @@ const lp=s.levelProgress||{};['typing','memory','reaction','math','sliding','sim
 toggleSetting(key){this.settings[key]=!this.settings[key];this.updateSettingsUI();this.saveData();},
 updateSettingsUI(){document.getElementById('toggle-sound').classList.toggle('active',this.settings.sound);document.getElementById('toggle-vibration').classList.toggle('active',this.settings.vibration);document.getElementById('toggle-autofocus').classList.toggle('active',this.settings.autofocus);},
 resetStats(){if(!confirm('This resets ALL statistics and level progress. Continue?'))return;this.stats=this.defaultStats();this.saveData();this.updateStatsUI();alert('Statistics and level progress reset!');},
-resetAll(){if(!confirm('Reset everything for this session (stats, levels, settings)?'))return;this.stats=this.defaultStats();this.settings={sound:true,vibration:true,autofocus:true};this.timeLimit=15;this.currentMode='classic';this.updateSettingsUI();this.updateStatsUI();alert('Everything reset for this session!');},
+resetAll(){if(!confirm('Reset ALL saved progress, scores, levels and settings on this device? This cannot be undone.'))return;this.stats=this.defaultStats();this.settings={sound:true,vibration:true,autofocus:true};this.timeLimit=15;this.currentMode='classic';try{localStorage.removeItem('azArcadeProgress_v1');}catch(e){}this.updateSettingsUI();this.updateStatsUI();alert('Everything has been reset!');},
 
 /* ===== MEMORY MATCH ===== */
 selectMemoryDiff(d){this.memoryDiff=d;document.querySelectorAll('#memory-diff-selector .mode-card').forEach(c=>c.classList.remove('selected'));document.querySelector('#memory-diff-selector .mode-card[data-diff="'+d+'"]').classList.add('selected');},
@@ -1485,4 +1995,3 @@ window.addEventListener('DOMContentLoaded',()=>{game.init();});
 </script>
 </body>
 </html>
-
