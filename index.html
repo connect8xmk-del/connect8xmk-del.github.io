@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>A-Z Arcade - Typing, Memory, Reaction, Math &amp; Puzzles</title>
+<meta name="google-site-verification" content="rcQSqKklKPqytBCxTDOceZ8RgSiANwoQni1MDtuc9_g" />
+<meta name="google-adsense-account" content="ca-pub-7100289179687225">
 <link rel="manifest" href="./manifest.json">
 <meta name="theme-color" content="#00d4ff">
 <link rel="icon" type="image/png" href="./icon-192.png">
@@ -358,6 +360,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 <div class="footer-links">
 <span onclick="game.scrollToId('games-section')">Games</span>
 <span onclick="game.showScreen('whyplay')">Why Play</span>
+<span onclick="game.showScreen('gameguide')">Game Guide</span>
 <span onclick="game.showScreen('guide')">How to Play</span>
 <span onclick="game.showScreen('about')">About</span>
 <span onclick="game.showScreen('privacy')">Privacy</span>
@@ -709,6 +712,57 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 <p>A few minutes a day on games like Typing Challenge, Memory Match or Math Quiz can measurably improve real-world skills: faster, more accurate typing speeds up everything from schoolwork to job applications; memory games strengthen short-term recall and pattern recognition; reaction-time drills sharpen focus and reflexes; and quick mental-math practice builds number confidence. Unlike passive scrolling, these games give you instant feedback on your own progress, which is one of the fastest ways to actually get better at a skill.</p>
 <h3>Features of A-Z Arcade</h3>
 <p>26 free mini-games across five categories — Skill, Brain, Puzzle, Arcade and Knowledge. Eight of them include a full 100-level progression system with increasing difficulty. Everything runs directly in your browser with no installation, and your scores and level progress are saved automatically on your own device so you can pick up where you left off. The site is mobile-friendly with touch controls, swipe gestures and sound effects throughout, and works equally well on phones, tablets and desktops.</p>
+<p style="margin-top:16px;">Want the full breakdown of every single game — objective, controls, scoring and a pro tip for each? Check the <span style="color:var(--accent);cursor:pointer;text-decoration:underline;" onclick="game.showScreen('gameguide')">Game Guide</span>.</p>
+</div>
+</div>
+</div>
+
+<!-- Game Guide - detailed per-game reference -->
+<div id="screen-gameguide" class="screen">
+<div class="nav-header">
+<button class="nav-back" onclick="game.showScreen('home')">← Back</button>
+<div class="nav-title">Game Guide</div>
+<div style="width:60px;"></div>
+</div>
+<div class="card">
+<div class="legal-text">
+<p>A quick-reference sheet for all 26 games — what each one asks of you, how to control it, how scoring works, and one tip to get better fast.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="legal-text">
+<h3>🎯 Skill</h3>
+<p><strong>Typing Challenge</strong> — Objective: type the given letters, numbers, symbols, words or sentences correctly before time runs out, across 9 different modes. Controls: your device keyboard, or the on-screen text box on mobile. Scoring: points per correct character plus a combo bonus for consecutive correct hits; accuracy is tracked separately from speed. Tip: slow down by 10% and your accuracy — and therefore your real score — usually goes up more than it goes down.</p>
+<p><strong>Reaction Time</strong> — Objective: tap the box the instant it turns green, across 5 rounds. Controls: tap/click anywhere on the box. Scoring: your reaction time in milliseconds for each round, averaged at the end; tapping before it turns green restarts that round. Tip: rest your finger lightly on the screen rather than hovering — the extra travel time adds up over 5 rounds.</p>
+<p><strong>Math Quiz</strong> — Objective: solve as many arithmetic problems as possible before the timer ends, at Easy, Medium or Hard difficulty. Controls: number pad input plus a GO button. Scoring: points per correct answer, with a streak bonus for consecutive correct answers. Tip: at Hard difficulty, division problems are pre-generated to divide evenly — if your answer isn't a whole number, you've made an arithmetic slip, not found an edge case.</p>
+<p><strong>Stroop Test</strong> — Objective: tap the button that matches the INK COLOR a word is printed in, not the word itself. Controls: tap one of the four color-name buttons. Scoring: one point per correct match within the time limit. Tip: read the color, not the letters — try softly squinting so the word shape blurs and only the color stands out.</p>
+<h3>🧠 Brain</h3>
+<p><strong>Memory Match</strong> — Objective: flip two cards at a time and find every matching pair. Controls: tap any face-down card. Scoring: fewer moves and less time both push your score higher; difficulty (Easy/Medium/Hard) sets how many pairs are in play. Tip: on your first few flips, deliberately explore new cards instead of re-checking ones you've already seen — you learn the board faster that way.</p>
+<p><strong>Word Search</strong> — Objective: find all 8 hidden words in the letter grid. Controls: tap the first letter of a word, then its last letter, in a straight line (any direction, including diagonal and backwards). Scoring: a completion timer; no penalty for wrong selections. Tip: scan for double letters or unusual letters (Q, X, Z) first — they narrow down a word's location fastest.</p>
+<p><strong>Crossword</strong> — Objective: fill the 3x3 grid so every row forms a real word, guided by the clues. Controls: tap a cell and type a letter. Scoring: pass/fail on Check Answers; incorrect letters are highlighted so you can fix just those. Tip: since the grid is symmetric, a letter you're sure of in a row also tells you a letter in the matching column.</p>
+<p><strong>Simon Says</strong> — Objective: watch a sequence of colors flash, then repeat it back in the same order. Controls: tap the four colored panels. Scoring: level-based — the sequence gets one step longer and slightly faster each level. Tip: say the color names in your head as they flash; verbal encoding holds a sequence in memory longer than visual memory alone.</p>
+<p><strong>Lights Out</strong> — Objective: turn every light off. Controls: tap a light to toggle it and its up/down/left/right neighbors. Scoring: level-based, with a move limit that gets tighter as the grid grows. Tip: work row by row from the top — once a row is fully off, only touch cells in the row below it so you don't undo your progress.</p>
+<p><strong>Wordle</strong> — Objective: guess the secret 5-letter word within 6 tries. Controls: type a 5-letter guess and tap GO. Scoring: green = correct letter, correct spot; yellow = correct letter, wrong spot; gray = not in the word. Tip: your first guess should use 5 different common vowels/consonants (like CRANE or SLATE) to gather the most information before you start narrowing down.</p>
+<p><strong>Hangman</strong> — Objective: guess the hidden word letter by letter before you run out of lives. Controls: tap letters on the on-screen A-Z keyboard. Scoring: pass/fail — you have 6 wrong guesses before the word is revealed and the round ends. Tip: guess common vowels (E, A) and consonants (R, T, N) first; save rare letters like Q and Z for when you've narrowed down the word's shape.</p>
+<p><strong>Anagram Scramble</strong> — Objective: unscramble jumbled letters back into the original word, as many times as possible before time runs out. Controls: type your answer and tap GO (or press Enter). Scoring: one point per correct word within the 60-second timer. Tip: look for common word endings (-ING, -ED, -ER) in the scrambled letters first — spotting a likely suffix shrinks the puzzle fast.</p>
+<h3>🧩 Puzzle</h3>
+<p><strong>Sliding Puzzle</strong> — Objective: slide numbered tiles around a single empty space until they're in order. Controls: tap any tile adjacent to the empty space to slide it. Scoring: level-based, tracked by number of moves; the grid grows from 3x3 to 5x5 at higher levels. Tip: solve the top row and left column first and treat them as "locked" — then the rest reduces to a smaller version of the same puzzle.</p>
+<p><strong>2048</strong> — Objective: slide and merge numbered tiles until you reach the 2048 tile. Controls: swipe in any direction, or use the on-screen arrow pad. Scoring: points equal to the value of every merge; your best tile is also tracked. Tip: pick one corner and always build your highest tile there — avoid swiping in the direction that would move it away from that corner.</p>
+<p><strong>Tic-Tac-Toe</strong> — Objective: get three of your marks in a row before the AI does. Controls: tap any empty cell. Scoring: win/draw/loss record is tracked across games; Easy AI plays randomly, Hard AI plays a perfect, unbeatable strategy. Tip: against Hard mode, the best you can achieve is a draw — taking the center on your first move gives you the best odds of forcing one.</p>
+<p><strong>Number Tap</strong> — Objective: tap scattered numbers in ascending order before time runs out. Controls: tap the numbers directly on the grid. Scoring: level-based; both the amount of numbers and the time limit scale with level. Tip: locate 1 and 2 first before you start tapping — knowing where the sequence begins prevents wasted eye movement mid-run.</p>
+<p><strong>Minesweeper</strong> — Objective: reveal every safe cell without clicking on a mine. Controls: tap a cell to reveal it; toggle Flag Mode to mark cells you suspect are mines instead of revealing them. Scoring: pass/fail — a single mine ends the round instantly. Tip: start by revealing corners and edges; they touch fewer hidden cells, so they're statistically safer opening moves.</p>
+<p><strong>Color Flood</strong> — Objective: turn the entire grid into a single color, starting from the top-left corner, within the move limit. Controls: tap a color swatch to flood outward from your current region into that color. Scoring: pass/fail based on whether you finish within the move limit; fewer moves used means a cleaner win. Tip: look for the color that borders your current region in the most places — flooding into it captures the largest new area per move.</p>
+<p><strong>Connect Four</strong> — Objective: connect four of your discs in a row — horizontal, vertical or diagonal — before the AI does. Controls: tap a column to drop your disc into the lowest open slot. Scoring: win/draw/loss record tracked across games. Tip: controlling the center column gives you the most possible four-in-a-row lines, so contest it early rather than playing only on the edges.</p>
+<h3>🕹️ Arcade</h3>
+<p><strong>Snake</strong> — Objective: eat food to grow as long as possible without hitting a wall or your own tail. Controls: swipe on the canvas, or use the on-screen D-pad. Scoring: one point per food eaten; your length is your live score. Tip: hug the outer walls in a loop when the board gets crowded — it's easier to control than cutting through open middle space.</p>
+<p><strong>Whack-a-Mole</strong> — Objective: tap moles the instant they pop up, within 30 seconds. Controls: tap a hole when a mole appears. Scoring: one point per successful whack; moles appear faster as your score climbs. Tip: keep your eyes on the center of the grid rather than tracking each hole individually — peripheral vision catches the pop-up faster than direct focus does.</p>
+<p><strong>Flappy Tap</strong> — Objective: fly your bird between an endless series of pipe gaps without hitting one. Controls: tap the screen to flap upward. Scoring: one point per pipe successfully passed. Tip: use short, repeated taps to hover through a gap rather than one big flap — fine control beats big corrections in a game this fast.</p>
+<p><strong>Breakout</strong> — Objective: bounce the ball with your paddle to break every brick on the board. Controls: drag left/right on the canvas to move the paddle. Scoring: 10 points per brick destroyed; you have 3 lives before the game ends. Tip: hitting the ball with the edge of the paddle sends it off at a sharper angle — aim for the edges to reach bricks tucked into corners.</p>
+<p><strong>Pong</strong> — Objective: score 5 points against the AI before it scores 5 against you. Controls: drag up/down on the canvas to move your paddle. Scoring: first to 5 points wins. Tip: hitting the ball with the edge of your paddle changes its angle more sharply — use that to aim shots away from the AI's current position.</p>
+<p><strong>Rock Paper Scissors</strong> — Objective: beat the AI's random pick across as many rounds as you'd like. Controls: tap Rock, Paper or Scissors. Scoring: your wins, draws and losses are tallied live. Tip: there's no pattern to exploit — the AI picks randomly each round, so past rounds never affect what comes next.</p>
+<h3>🎓 Knowledge</h3>
+<p><strong>Trivia Quiz</strong> — Objective: answer 10 random multiple-choice questions correctly. Controls: tap your chosen answer. Scoring: one point per correct answer out of 10, drawn from a bank of 30 general-knowledge questions across geography, science, history and more. Tip: eliminate the two most obviously wrong options first — it turns a 4-way guess into a coin flip when you're unsure.</p>
 </div>
 </div>
 </div>
@@ -897,6 +951,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 </div>
 <div id="memory-best-badge" class="best-badge">🎉 NEW BEST!</div>
 <button class="btn btn-primary" onclick="game.startMemoryFreePlay()">▶ PLAY AGAIN</button>
+<button class="btn btn-secondary" onclick="game.openShareModal('Memory Match',document.getElementById('memory-result-score').textContent+' pts, '+document.getElementById('memory-result-moves').textContent+' moves')">📤 SHARE SCORE</button>
 <button class="btn btn-secondary" onclick="game.showScreen('memory-setup')">⚙ CHANGE DIFFICULTY</button>
 <button class="btn btn-secondary" onclick="game.showScreen('home')">🏠 HOME</button>
 </div>
@@ -944,6 +999,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 </div>
 <div id="reaction-best-badge" class="best-badge">🎉 NEW BEST!</div>
 <button class="btn btn-primary" onclick="game.startReactionFreePlay()">▶ TRY AGAIN</button>
+<button class="btn btn-secondary" onclick="game.openShareModal('Reaction Time',document.getElementById('reaction-result-avg').textContent+' avg reaction')">📤 SHARE SCORE</button>
 <button class="btn btn-secondary" onclick="game.showScreen('home')">🏠 HOME</button>
 </div>
 </div>
@@ -1008,6 +1064,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 </div>
 <div id="math-best-badge" class="best-badge">🎉 NEW BEST!</div>
 <button class="btn btn-primary" onclick="game.showScreen('math-setup')">▶ PLAY AGAIN</button>
+<button class="btn btn-secondary" onclick="game.openShareModal('Math Quiz',document.getElementById('math-result-score').textContent+' pts, '+document.getElementById('math-result-solved').textContent+' solved')">📤 SHARE SCORE</button>
 <button class="btn btn-secondary" onclick="game.showScreen('home')">🏠 HOME</button>
 </div>
 </div>
@@ -1220,9 +1277,25 @@ body{font-family:'Poppins',sans-serif;background:var(--bg-dark);color:var(--text
 <div class="title" style="font-size:1.6rem;" id="arcade-result-title">GAME OVER</div>
 <div class="subtitle" id="arcade-result-sub">Score: 0</div>
 <button class="btn btn-primary" onclick="game.arcadeResultRetry()">🔁 PLAY AGAIN</button>
+<button class="btn btn-secondary" onclick="game.openShareModal(game.currentGameName,document.getElementById('arcade-result-sub').textContent)">📤 SHARE SCORE</button>
 <button class="btn btn-secondary" onclick="game.arcadeResultHome()">🏠 HOME</button>
 </div>
 </div>
+
+<!-- Share Modal (used by every game's result screen) -->
+<div id="overlay-share" class="overlay">
+<div class="overlay-content">
+<div class="title" style="font-size:1.3rem;margin-bottom:4px;">📤 Share Your Score</div>
+<div class="subtitle" id="share-preview-text" style="margin-bottom:20px;">Score: 0</div>
+<button class="btn btn-primary" onclick="game.shareNative()">📱 Share</button>
+<button class="btn btn-secondary" style="background:#25d366;color:#fff;border:none;" onclick="game.shareWhatsapp()">💬 WhatsApp</button>
+<button class="btn btn-secondary" style="background:#0088cc;color:#fff;border:none;" onclick="game.shareTelegram()">✈️ Telegram</button>
+<button class="btn btn-secondary" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;border:none;" onclick="game.shareInstagramStory()">📸 Instagram Story</button>
+<button class="btn btn-secondary" onclick="game.copyShareResult()">📋 Copy Result</button>
+<button class="btn btn-secondary" onclick="game.hideOverlay('overlay-share')">Close</button>
+</div>
+</div>
+<canvas id="share-story-canvas" width="1080" height="1920" style="display:none;"></canvas>
 
 <!-- Wordle -->
 <div id="screen-wordle-game" class="screen">
@@ -1383,6 +1456,7 @@ flappyRAF:null,flappyBird:{y:180,vy:0},flappyPipes:[],flappyScore:0,flappyRunnin
 triviaBank:[{q:'What is the capital of France?',options:['Berlin','Madrid','Paris','Rome'],correct:2},{q:'How many continents are there on Earth?',options:['5','6','7','8'],correct:2},{q:'What is the chemical symbol for Gold?',options:['Go','Gd','Au','Ag'],correct:2},{q:'Which planet is known as the Red Planet?',options:['Venus','Mars','Jupiter','Saturn'],correct:1},{q:'Who wrote the play Romeo and Juliet?',options:['Charles Dickens','William Shakespeare','Mark Twain','Leo Tolstoy'],correct:1},{q:'What is the largest ocean on Earth?',options:['Atlantic','Indian','Arctic','Pacific'],correct:3},{q:'How many legs does a spider have?',options:['6','8','10','12'],correct:1},{q:'What is the tallest mountain in the world?',options:['K2','Kangchenjunga','Mount Everest','Lhotse'],correct:2},{q:'Which gas do plants absorb from the atmosphere?',options:['Oxygen','Nitrogen','Carbon Dioxide','Hydrogen'],correct:2},{q:'What is the smallest prime number?',options:['0','1','2','3'],correct:2},{q:'Which organ pumps blood through the human body?',options:['Liver','Heart','Lungs','Kidney'],correct:1},{q:'What is the freezing point of water in Celsius?',options:['0','10','32','100'],correct:0},{q:'Which country is home to the Great Pyramid of Giza?',options:['Mexico','India','Egypt','Peru'],correct:2},{q:'How many strings does a standard guitar have?',options:['4','5','6','7'],correct:2},{q:'What is the largest mammal in the world?',options:['Elephant','Blue Whale','Giraffe','Polar Bear'],correct:1},{q:'Which planet do we live on?',options:['Mars','Venus','Earth','Mercury'],correct:2},{q:'What is H2O commonly known as?',options:['Salt','Sugar','Water','Oxygen'],correct:2},{q:'Which is the longest river in the world?',options:['Amazon','Nile','Yangtze','Mississippi'],correct:1},{q:'How many colors are there in a rainbow?',options:['5','6','7','8'],correct:2},{q:'What is the currency of Japan?',options:['Yuan','Won','Yen','Ringgit'],correct:2},{q:'Which is the smallest planet in our solar system?',options:['Mars','Mercury','Venus','Pluto'],correct:1},{q:'What do bees produce?',options:['Milk','Silk','Honey','Wax only'],correct:2},{q:'How many sides does a hexagon have?',options:['5','6','7','8'],correct:1},{q:'What is the capital of Japan?',options:['Seoul','Beijing','Tokyo','Bangkok'],correct:2},{q:'Which instrument has keys, pedals and strings?',options:['Guitar','Piano','Violin','Flute'],correct:1},{q:'What is the study of living organisms called?',options:['Physics','Chemistry','Biology','Geology'],correct:2},{q:'How many players are on a football (soccer) team on the field?',options:['9','10','11','12'],correct:2},{q:'Which metal is liquid at room temperature?',options:['Iron','Mercury','Aluminum','Copper'],correct:1},{q:'What is the capital of India?',options:['Mumbai','New Delhi','Kolkata','Chennai'],correct:1},{q:'Which shape has three sides?',options:['Square','Triangle','Pentagon','Circle'],correct:1}],
 triviaQuestions:[],triviaIndex:0,triviaScore:0,triviaAnswered:false,
 arcadeRetryFn:null,
+currentGameName:'A-Z Arcade',shareSiteUrl:'https://connect8xmk-del.github.io/',shareGameName:'',shareScoreText:'',
 
 wordleAnswer:'',wordleRow:0,wordleGuesses:[],wordleOver:false,
 hangmanWord:'',hangmanGuessed:[],hangmanWrong:0,hangmanMaxWrong:6,
@@ -1418,9 +1492,48 @@ arcadeResultHome(){document.getElementById('overlay-arcade-result').classList.re
 
 attachSwipe(el,callback){if(!el)return;let sx=0,sy=0;el.addEventListener('touchstart',(e)=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});el.addEventListener('touchend',(e)=>{const dx=e.changedTouches[0].clientX-sx;const dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)<20&&Math.abs(dy)<20)return;if(Math.abs(dx)>Math.abs(dy)){callback(dx>0?'right':'left');}else{callback(dy>0?'down':'up');}},{passive:true});},
 
+/* ===== SCORE SHARING (WhatsApp, Telegram, Copy, Instagram Story) ===== */
+openShareModal(gameName,scoreText){this.shareGameName=gameName||'A-Z Arcade';this.shareScoreText=scoreText||'';const el=document.getElementById('share-preview-text');if(el)el.textContent=this.shareGameName+' — '+this.shareScoreText;document.getElementById('overlay-share').classList.add('active');},
+
+buildShareText(){return '🎮 I just got '+this.shareScoreText+' in '+this.shareGameName+' on A-Z Arcade!\nCan you beat me?\n'+this.shareSiteUrl;},
+
+shareNative(){const text=this.buildShareText();if(navigator.share){navigator.share({title:'A-Z Arcade',text}).catch(()=>{});}else{this.copyShareResult();}},
+
+shareWhatsapp(){const text=encodeURIComponent(this.buildShareText());window.open('https://wa.me/?text='+text,'_blank');},
+
+shareTelegram(){const text=encodeURIComponent(this.buildShareText());const url=encodeURIComponent(this.shareSiteUrl);window.open('https://t.me/share/url?url='+url+'&text='+text,'_blank');},
+
+copyShareResult(){const text=this.buildShareText();try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(()=>alert('Result copied to clipboard!')).catch(()=>alert(text));}else{alert(text);}}catch(e){alert(text);}},
+
+wrapCanvasText(ctx,text,x,y,maxWidth,lineHeight){const words=(text||'').split(' ');let line='';let lines=[];for(let n=0;n<words.length;n++){const testLine=line+words[n]+' ';if(ctx.measureText(testLine).width>maxWidth&&n>0){lines.push(line);line=words[n]+' ';}else{line=testLine;}}lines.push(line);const startY=y-((lines.length-1)*lineHeight)/2;lines.forEach((l,i)=>ctx.fillText(l.trim(),x,startY+i*lineHeight));},
+
+roundRectCanvas(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();},
+
+downloadStoryImage(canvas){try{const link=document.createElement('a');link.download='az-arcade-score.png';link.href=canvas.toDataURL('image/png');link.click();alert('Image saved! Open it from your gallery/downloads, then share it to your Instagram Story from there.');}catch(e){alert('Could not generate the image on this device.');}},
+
+shareInstagramStory(){const canvas=document.getElementById('share-story-canvas');if(!canvas){this.downloadStoryImage(canvas);return;}const ctx=canvas.getContext('2d');const w=1080,h=1920;
+const grad=ctx.createLinearGradient(0,0,w,h);grad.addColorStop(0,'#0a0a0f');grad.addColorStop(1,'#1a0a2f');ctx.fillStyle=grad;ctx.fillRect(0,0,w,h);
+ctx.fillStyle='rgba(0,212,255,0.15)';ctx.beginPath();ctx.arc(150,300,220,0,Math.PI*2);ctx.fill();
+ctx.fillStyle='rgba(124,58,237,0.15)';ctx.beginPath();ctx.arc(930,1600,260,0,Math.PI*2);ctx.fill();
+ctx.textAlign='center';
+ctx.fillStyle='#00d4ff';ctx.font='bold 70px sans-serif';ctx.fillText('A-Z ARCADE',w/2,300);
+ctx.fillStyle='#ffffff';ctx.font='bold 80px sans-serif';this.wrapCanvasText(ctx,(this.shareGameName||'').toUpperCase(),w/2,480,900,100);
+ctx.fillStyle='rgba(255,255,255,0.08)';this.roundRectCanvas(ctx,140,750,800,420,40);ctx.fill();
+ctx.fillStyle='#ffd700';ctx.font='bold 60px sans-serif';ctx.fillText('🏆',w/2,880);
+ctx.fillStyle='#00e676';ctx.font='bold 95px sans-serif';this.wrapCanvasText(ctx,this.shareScoreText||'',w/2,1020,700,110);
+ctx.fillStyle='#ffffff';ctx.font='bold 55px sans-serif';ctx.fillText('Can you beat my score?',w/2,1350);
+ctx.fillStyle='rgba(255,255,255,0.6)';ctx.font='40px sans-serif';ctx.fillText(this.shareSiteUrl.replace('https://',''),w/2,1450);
+try{canvas.toBlob((blob)=>{if(!blob){this.downloadStoryImage(canvas);return;}
+try{const file=new File([blob],'az-arcade-score.png',{type:'image/png'});
+if(navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:'A-Z Arcade',text:this.buildShareText()}).catch(()=>{this.downloadStoryImage(canvas);});}
+else{this.downloadStoryImage(canvas);}
+}catch(e){this.downloadStoryImage(canvas);}
+});}catch(e){this.downloadStoryImage(canvas);}
+},
+
 /* ===== WORDLE ===== */
 wordleBank:['APPLE','BRAVE','CHAIR','DANCE','EAGLE','FLAME','GRAPE','HOUSE','JOKER','KNIFE','LEMON','MONEY','NIGHT','OCEAN','PIANO','QUEEN','RIVER','STONE','TABLE','UNCLE','VOICE','WATER','YOUTH','ZEBRA','BEACH','CLOUD','DREAM','EARTH','FROST','GHOST','HEART','IVORY','JUICE','KOALA','LIGHT','MUSIC','NORTH','OLIVE','PEACE','QUICK','ROBOT','SMILE','TIGER','UNITY','VIVID','WORLD','YIELD'],
-startWordle(){this.wordleAnswer=this.wordleBank[Math.floor(Math.random()*this.wordleBank.length)];this.wordleRow=0;this.wordleGuesses=[];this.wordleOver=false;this.renderWordleGrid();this.showScreen('wordle-game');const inp=document.getElementById('wordle-input');if(inp){inp.value='';if(!inp.dataset.listenerAdded){inp.addEventListener('keydown',(e)=>{if(e.key==='Enter'){e.preventDefault();this.submitWordleGuess();}});inp.dataset.listenerAdded='1';}}},
+startWordle(){this.currentGameName='Wordle';this.wordleAnswer=this.wordleBank[Math.floor(Math.random()*this.wordleBank.length)];this.wordleRow=0;this.wordleGuesses=[];this.wordleOver=false;this.renderWordleGrid();this.showScreen('wordle-game');const inp=document.getElementById('wordle-input');if(inp){inp.value='';if(!inp.dataset.listenerAdded){inp.addEventListener('keydown',(e)=>{if(e.key==='Enter'){e.preventDefault();this.submitWordleGuess();}});inp.dataset.listenerAdded='1';}}},
 renderWordleGrid(){const grid=document.getElementById('wordle-grid');grid.innerHTML='';for(let r=0;r<6;r++){const row=document.createElement('div');row.className='wordle-row';for(let c=0;c<5;c++){const cell=document.createElement('div');cell.className='wordle-cell';const guess=this.wordleGuesses[r];if(guess){cell.textContent=guess.word[c];cell.classList.add(guess.result[c]);}row.appendChild(cell);}grid.appendChild(row);}},
 submitWordleGuess(){if(this.wordleOver)return;const inp=document.getElementById('wordle-input');const word=(inp.value||'').toUpperCase().trim();if(word.length!==5){this.showWordleMessage('Enter exactly 5 letters','error');return;}
 const answerLetters=this.wordleAnswer.split('');const result=new Array(5).fill('absent');const used=new Array(5).fill(false);
@@ -1435,7 +1548,7 @@ showWordleMessage(text,type){const el=document.getElementById('wordle-message');
 
 /* ===== HANGMAN ===== */
 hangmanBank:['PYTHON','ELEPHANT','GUITAR','MOUNTAIN','RAINBOW','DOLPHIN','VOLCANO','GALAXY','PYRAMID','JACKET','UMBRELLA','DIAMOND','ISLAND','CASTLE','DESERT','JUNGLE','PENGUIN','ROCKET','SANDWICH','TRUMPET','WIZARD','YOGURT','BICYCLE','CACTUS','FOUNTAIN','HARMONY','ICEBERG','KEYBOARD','LANTERN','MERMAID'],
-startHangman(){this.hangmanWord=this.hangmanBank[Math.floor(Math.random()*this.hangmanBank.length)];this.hangmanGuessed=[];this.hangmanWrong=0;this.renderHangman();this.renderHangmanKeyboard();this.showScreen('hangman-game');},
+startHangman(){this.currentGameName='Hangman';this.hangmanWord=this.hangmanBank[Math.floor(Math.random()*this.hangmanBank.length)];this.hangmanGuessed=[];this.hangmanWrong=0;this.renderHangman();this.renderHangmanKeyboard();this.showScreen('hangman-game');},
 renderHangman(){const el=document.getElementById('hangman-word');el.textContent=this.hangmanWord.split('').map(ch=>this.hangmanGuessed.includes(ch)?ch:'_').join(' ');const livesEl=document.getElementById('hangman-lives');let hearts='';for(let i=0;i<this.hangmanMaxWrong;i++){hearts+=i<(this.hangmanMaxWrong-this.hangmanWrong)?'❤️':'🖤';}livesEl.textContent=hearts;},
 renderHangmanKeyboard(){const el=document.getElementById('hangman-letters');el.innerHTML='';'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(ch=>{const btn=document.createElement('div');btn.className='mini-key';btn.textContent=ch;btn.style.maxWidth='none';if(this.hangmanGuessed.includes(ch)){btn.classList.add(this.hangmanWord.includes(ch)?'used-correct':'used-absent');}else{btn.addEventListener('click',()=>this.guessHangmanLetter(ch));}el.appendChild(btn);});},
 guessHangmanLetter(ch){if(this.hangmanGuessed.includes(ch))return;this.hangmanGuessed.push(ch);if(!this.hangmanWord.includes(ch)){this.hangmanWrong++;this.playSound('wrong');this.vibrate([50,30,50]);}else{this.playSound('correct');this.vibrate(20);}
@@ -1447,7 +1560,7 @@ else if(this.hangmanWrong>=this.hangmanMaxWrong){this.playSound('lose');this.vib
 
 /* ===== ANAGRAM SCRAMBLE ===== */
 anagramBank:['TIGER','HOUSE','PLANET','GARDEN','WINDOW','BASKET','ROCKET','CASTLE','PENCIL','MARKET','SILVER','GOLDEN','WINTER','SUMMER','FRIEND','ANIMAL','FOREST','ISLAND','DRAGON','PUZZLE','YELLOW','PURPLE','ORANGE','MOTHER','FATHER','SISTER','TRAVEL','CAMERA','LAPTOP','MOBILE'],
-startAnagram(){this.anagramScore=0;this.anagramTimeLeft=60;document.getElementById('anagram-score').textContent='0';document.getElementById('anagram-timer').textContent='60';this.nextAnagramWord();this.showScreen('anagram-game');const inp=document.getElementById('anagram-input');if(inp&&!inp.dataset.listenerAdded){inp.addEventListener('keydown',(e)=>{if(e.key==='Enter'){e.preventDefault();this.submitAnagramGuess();}});inp.dataset.listenerAdded='1';}
+startAnagram(){this.currentGameName='Anagram Scramble';this.anagramScore=0;this.anagramTimeLeft=60;document.getElementById('anagram-score').textContent='0';document.getElementById('anagram-timer').textContent='60';this.nextAnagramWord();this.showScreen('anagram-game');const inp=document.getElementById('anagram-input');if(inp&&!inp.dataset.listenerAdded){inp.addEventListener('keydown',(e)=>{if(e.key==='Enter'){e.preventDefault();this.submitAnagramGuess();}});inp.dataset.listenerAdded='1';}
 if(this.anagramInterval)clearInterval(this.anagramInterval);this.anagramInterval=setInterval(()=>{this.anagramTimeLeft--;const el=document.getElementById('anagram-timer');if(el)el.textContent=this.anagramTimeLeft;if(this.anagramTimeLeft<=0){clearInterval(this.anagramInterval);setTimeout(()=>this.showArcadeResult('TIME UP!','Score: '+this.anagramScore,'🔤',()=>this.startAnagram()),200);}},1000);
 },
 nextAnagramWord(){this.anagramWord=this.anagramBank[Math.floor(Math.random()*this.anagramBank.length)];let scrambled;do{scrambled=this.shuffleArray(this.anagramWord.split('')).join('');}while(scrambled===this.anagramWord);document.getElementById('anagram-scrambled').textContent=scrambled;const inp=document.getElementById('anagram-input');if(inp)inp.value='';},
@@ -1455,7 +1568,7 @@ submitAnagramGuess(){const inp=document.getElementById('anagram-input');const va
 showAnagramMessage(text,type){const el=document.getElementById('anagram-message');el.textContent=text;el.className='message '+type;el.style.display='block';setTimeout(()=>{el.style.display='none';},900);},
 
 /* ===== MINESWEEPER ===== */
-startMinesweeper(){this.mineSize=9;this.mineCount=10;this.mineFlagMode=false;this.mineOver=false;this.mineRevealedCount=0;
+startMinesweeper(){this.currentGameName='Minesweeper';this.mineSize=9;this.mineCount=10;this.mineFlagMode=false;this.mineOver=false;this.mineRevealedCount=0;
 let cells=[];for(let i=0;i<this.mineSize*this.mineSize;i++)cells.push({mine:false,revealed:false,flagged:false,adjacent:0});
 let placed=0;while(placed<this.mineCount){const idx=Math.floor(Math.random()*cells.length);if(!cells[idx].mine){cells[idx].mine=true;placed++;}}
 for(let i=0;i<cells.length;i++){if(cells[i].mine)continue;const r=Math.floor(i/this.mineSize),c=i%this.mineSize;let count=0;for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){if(dr===0&&dc===0)continue;const rr=r+dr,cc=c+dc;if(rr>=0&&rr<this.mineSize&&cc>=0&&cc<this.mineSize&&cells[rr*this.mineSize+cc].mine)count++;}cells[i].adjacent=count;}
@@ -1481,7 +1594,7 @@ if(cell.adjacent===0){const r=Math.floor(i/this.mineSize),c=i%this.mineSize;for(
 },
 
 /* ===== COLOR FLOOD ===== */
-startColorFlood(){this.floodSize=12;this.floodMaxMoves=25;this.floodMoves=0;this.floodGrid=[];for(let i=0;i<this.floodSize*this.floodSize;i++)this.floodGrid.push(Math.floor(Math.random()*this.floodColors.length));
+startColorFlood(){this.currentGameName='Color Flood';this.floodSize=12;this.floodMaxMoves=25;this.floodMoves=0;this.floodGrid=[];for(let i=0;i<this.floodSize*this.floodSize;i++)this.floodGrid.push(Math.floor(Math.random()*this.floodColors.length));
 document.getElementById('flood-moves').textContent='0/'+this.floodMaxMoves;this.renderColorFlood();this.renderFloodPalette();this.showScreen('colorflood-game');
 },
 renderColorFlood(){const grid=document.getElementById('colorflood-grid');grid.style.gridTemplateColumns='repeat('+this.floodSize+',1fr)';grid.innerHTML='';this.floodGrid.forEach(colorIdx=>{const el=document.createElement('div');el.className='flood-cell';el.style.background=this.floodColors[colorIdx];grid.appendChild(el);});},
@@ -1529,7 +1642,7 @@ return valid[Math.floor(Math.random()*valid.length)];
 finishConnect4(msg,winner){this.c4GameOver=true;document.getElementById('c4-status').textContent=msg;if(winner==='red'){this.playSound('win');this.vibrate([30,50,30,50,100]);}else if(winner==='yellow'){this.playSound('lose');this.vibrate([100,50,100]);}else{this.playSound('tick');}},
 
 /* ===== BREAKOUT ===== */
-startBreakout(){this.breakoutScore=0;this.breakoutLives=3;this.breakoutRunning=true;document.getElementById('breakout-score').textContent='0';document.getElementById('breakout-lives').textContent='3';
+startBreakout(){this.currentGameName='Breakout';this.breakoutScore=0;this.breakoutLives=3;this.breakoutRunning=true;document.getElementById('breakout-score').textContent='0';document.getElementById('breakout-lives').textContent='3';
 const canvas=document.getElementById('breakout-canvas');this.setupCanvasDPI(canvas,300,400);
 this.breakoutPaddleX=110;this.breakoutBall={x:150,y:300,vx:2.5,vy:-3.2,r:6};
 this.breakoutBricks=[];const cols=8,rows=5;for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){this.breakoutBricks.push({x:c*36+6,y:r*18+30,w:32,h:14,alive:true});}
@@ -1562,7 +1675,7 @@ this.breakoutRAF=requestAnimationFrame(()=>this.breakoutLoop());
 },
 
 /* ===== PONG ===== */
-startPong(){this.pongScorePlayer=0;this.pongScoreAi=0;this.pongPlayerY=170;this.pongAiY=170;this.resetPongBall();this.pongRunning=true;document.getElementById('pong-score').textContent='0 - 0';
+startPong(){this.currentGameName='Pong';this.pongScorePlayer=0;this.pongScoreAi=0;this.pongPlayerY=170;this.pongAiY=170;this.resetPongBall();this.pongRunning=true;document.getElementById('pong-score').textContent='0 - 0';
 const canvas=document.getElementById('pong-canvas');this.setupCanvasDPI(canvas,300,400);
 if(!canvas.dataset.dragAdded){let dragging=false;const moveHandler=(clientY)=>{const rect=canvas.getBoundingClientRect();const y=clientY-rect.top;this.pongPlayerY=Math.max(0,Math.min(400-60,y-30));};
 canvas.addEventListener('touchstart',(e)=>{dragging=true;moveHandler(e.touches[0].clientY);},{passive:true});
@@ -1603,7 +1716,7 @@ else{this.rpsLosses++;document.getElementById('rps-losses').textContent=this.rps
 
 /* ===== STROOP TEST ===== */
 stroopColors:[{name:'RED',hex:'#ff1744'},{name:'GREEN',hex:'#00e676'},{name:'BLUE',hex:'#00d4ff'},{name:'YELLOW',hex:'#ffea00'},{name:'PURPLE',hex:'#ba68c8'}],
-startStroop(){this.stroopScore=0;this.stroopTimeLeft=30;document.getElementById('stroop-score').textContent='0';document.getElementById('stroop-timer').textContent='30';this.nextStroopRound();this.showScreen('stroop-game');
+startStroop(){this.currentGameName='Stroop Test';this.stroopScore=0;this.stroopTimeLeft=30;document.getElementById('stroop-score').textContent='0';document.getElementById('stroop-timer').textContent='30';this.nextStroopRound();this.showScreen('stroop-game');
 if(this.stroopInterval)clearInterval(this.stroopInterval);this.stroopInterval=setInterval(()=>{this.stroopTimeLeft--;const el=document.getElementById('stroop-timer');if(el)el.textContent=this.stroopTimeLeft;if(this.stroopTimeLeft<=0){clearInterval(this.stroopInterval);setTimeout(()=>this.showArcadeResult('TIME UP!','Score: '+this.stroopScore,'🌈',()=>this.startStroop()),200);}},1000);
 },
 nextStroopRound(){const wordObj=this.stroopColors[Math.floor(Math.random()*this.stroopColors.length)];let inkObj;do{inkObj=this.stroopColors[Math.floor(Math.random()*this.stroopColors.length)];}while(inkObj.name===wordObj.name&&this.stroopColors.length>1&&Math.random()<0.85);
@@ -1616,7 +1729,7 @@ answerStroop(name){if(name===this.stroopAnswer){this.stroopScore++;document.getE
 setupCanvasDPI(canvas,cssW,cssH){if(!canvas)return null;const dpr=window.devicePixelRatio||1;canvas.width=Math.round(cssW*dpr);canvas.height=Math.round(cssH*dpr);canvas.style.width=cssW+'px';canvas.style.height=cssH+'px';const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return ctx;},
 
 /* ===== WORD SEARCH ===== */
-startWordSearch(){const size=10;const dirs=[[0,1],[1,0],[1,1],[-1,1]];let words=this.shuffleArray([...this.wordSearchPool]).slice(0,8);let grid=Array.from({length:size},()=>Array(size).fill(null));let placements=[];
+startWordSearch(){this.currentGameName='Word Search';const size=10;const dirs=[[0,1],[1,0],[1,1],[-1,1]];let words=this.shuffleArray([...this.wordSearchPool]).slice(0,8);let grid=Array.from({length:size},()=>Array(size).fill(null));let placements=[];
 words.forEach(word=>{let placed=false;for(let attempt=0;attempt<80&&!placed;attempt++){const dir=dirs[Math.floor(Math.random()*dirs.length)];const dr=dir[0],dc=dir[1];
 const startR=dr===1?Math.floor(Math.random()*(size-word.length+1)):(dr===-1?Math.floor(Math.random()*(size-word.length))+word.length-1:Math.floor(Math.random()*size));
 const startC=dc===1?Math.floor(Math.random()*(size-word.length+1)):Math.floor(Math.random()*size);
@@ -1648,7 +1761,7 @@ updateWsCellClass(r,c,sel){const el=document.querySelector('.ws-cell[data-r="'+r
 clearWsSelection(){document.querySelectorAll('.ws-cell.selected').forEach(el=>el.classList.remove('selected'));},
 
 /* ===== CROSSWORD ===== */
-startCrossword(){const idx=Math.floor(Math.random()*this.crosswordPuzzles.length);const puzzle=this.crosswordPuzzles[idx];this.crosswordSolution=puzzle.words.map(w=>w.split(''));this.renderCrossword(puzzle);this.showScreen('crossword-game');},
+startCrossword(){this.currentGameName='Crossword';const idx=Math.floor(Math.random()*this.crosswordPuzzles.length);const puzzle=this.crosswordPuzzles[idx];this.crosswordSolution=puzzle.words.map(w=>w.split(''));this.renderCrossword(puzzle);this.showScreen('crossword-game');},
 renderCrossword(puzzle){const grid=document.getElementById('cw-grid');grid.innerHTML='';for(let r=0;r<3;r++){for(let c=0;c<3;c++){const inp=document.createElement('input');inp.className='cw-cell';inp.maxLength=1;inp.dataset.r=r;inp.dataset.c=c;inp.addEventListener('input',(e)=>{e.target.value=e.target.value.toUpperCase().replace(/[^A-Z]/g,'');e.target.classList.remove('correct','wrong');});grid.appendChild(inp);}}
 const cluesEl=document.getElementById('cw-clues');cluesEl.innerHTML='';puzzle.clues.forEach((clue,i)=>{const d=document.createElement('div');d.className='cw-clue';d.textContent=(i+1)+'. '+clue;cluesEl.appendChild(d);});},
 checkCrossword(){const inputs=document.querySelectorAll('.cw-cell');let allCorrect=true;inputs.forEach(inp=>{const r=parseInt(inp.dataset.r),c=parseInt(inp.dataset.c);const correct=this.crosswordSolution[r][c];if((inp.value||'').toUpperCase()===correct){inp.classList.add('correct');inp.classList.remove('wrong');}else{inp.classList.add('wrong');inp.classList.remove('correct');allCorrect=false;}});
@@ -1671,7 +1784,7 @@ document.getElementById('ttt-wins').textContent=this.tttWins;document.getElement
 },
 
 /* ===== 2048 ===== */
-newGame2048(){this.board2048=Array.from({length:4},()=>Array(4).fill(0));this.score2048=0;this.best2048Tile=0;this.spawn2048Tile();this.spawn2048Tile();this.render2048();this.showScreen('2048-game');},
+newGame2048(){this.currentGameName='2048';this.board2048=Array.from({length:4},()=>Array(4).fill(0));this.score2048=0;this.best2048Tile=0;this.spawn2048Tile();this.spawn2048Tile();this.render2048();this.showScreen('2048-game');},
 spawn2048Tile(){const empty=[];for(let r=0;r<4;r++)for(let c=0;c<4;c++)if(this.board2048[r][c]===0)empty.push([r,c]);if(empty.length===0)return;const pick=empty[Math.floor(Math.random()*empty.length)];this.board2048[pick[0]][pick[1]]=Math.random()<0.9?2:4;},
 render2048(){const el=document.getElementById('board-2048');el.innerHTML='';const colors={2:'#eee4da',4:'#ede0c8',8:'#f2b179',16:'#f59563',32:'#f67c5f',64:'#f65e3b',128:'#edcf72',256:'#edcc61',512:'#edc850',1024:'#edc53f',2048:'#edc22e'};
 for(let r=0;r<4;r++)for(let c=0;c<4;c++){const val=this.board2048[r][c];const tile=document.createElement('div');tile.className='tile-2048';if(val){tile.textContent=val;tile.style.background=colors[val]||'#3c3a32';tile.style.color=val<=4?'#333':'#fff';if(val>this.best2048Tile)this.best2048Tile=val;}el.appendChild(tile);}
@@ -1688,7 +1801,7 @@ if(moved){this.spawn2048Tile();this.render2048();this.playSound('tick');if(!this
 has2048Moves(){for(let r=0;r<4;r++)for(let c=0;c<4;c++){if(this.board2048[r][c]===0)return true;if(c<3&&this.board2048[r][c]===this.board2048[r][c+1])return true;if(r<3&&this.board2048[r][c]===this.board2048[r+1][c])return true;}return false;},
 
 /* ===== SNAKE ===== */
-startSnake(){this.snakeCols=15;this.snakeRows=15;this.snakeCell=20;this.snakeSegments=[{x:7,y:7},{x:6,y:7},{x:5,y:7}];this.snakeDir={x:1,y:0};this.snakeNextDir={x:1,y:0};this.snakeScore=0;this.spawnSnakeFood();document.getElementById('snake-score').textContent='0';this.showScreen('snake-game');const canvas=document.getElementById('snake-canvas');this.setupCanvasDPI(canvas,this.snakeCols*this.snakeCell,this.snakeRows*this.snakeCell);if(this.snakeInterval)clearInterval(this.snakeInterval);this.snakeInterval=setInterval(()=>this.snakeTick(),140);this.drawSnake();},
+startSnake(){this.currentGameName='Snake';this.snakeCols=15;this.snakeRows=15;this.snakeCell=20;this.snakeSegments=[{x:7,y:7},{x:6,y:7},{x:5,y:7}];this.snakeDir={x:1,y:0};this.snakeNextDir={x:1,y:0};this.snakeScore=0;this.spawnSnakeFood();document.getElementById('snake-score').textContent='0';this.showScreen('snake-game');const canvas=document.getElementById('snake-canvas');this.setupCanvasDPI(canvas,this.snakeCols*this.snakeCell,this.snakeRows*this.snakeCell);if(this.snakeInterval)clearInterval(this.snakeInterval);this.snakeInterval=setInterval(()=>this.snakeTick(),140);this.drawSnake();},
 spawnSnakeFood(){let pos;do{pos={x:Math.floor(Math.random()*this.snakeCols),y:Math.floor(Math.random()*this.snakeRows)};}while(this.snakeSegments.some(s=>s.x===pos.x&&s.y===pos.y));this.snakeFood=pos;},
 setSnakeDir(x,y){if(this.snakeDir.x===-x&&this.snakeDir.y===-y)return;this.snakeNextDir={x,y};},
 snakeTick(){this.snakeDir=this.snakeNextDir;const head={x:this.snakeSegments[0].x+this.snakeDir.x,y:this.snakeSegments[0].y+this.snakeDir.y};
@@ -1702,7 +1815,7 @@ this.snakeSegments.forEach((s,i)=>{ctx.fillStyle=i===0?'#00d4ff':'#00e676';ctx.f
 },
 
 /* ===== WHACK-A-MOLE ===== */
-startWhack(){this.whackScore=0;this.whackTimeLeft=30;this.whackActiveHole=-1;document.getElementById('whack-score').textContent='0';document.getElementById('whack-timer').textContent='30';this.renderWhackGrid();this.showScreen('whack-game');
+startWhack(){this.currentGameName='Whack-a-Mole';this.whackScore=0;this.whackTimeLeft=30;this.whackActiveHole=-1;document.getElementById('whack-score').textContent='0';document.getElementById('whack-timer').textContent='30';this.renderWhackGrid();this.showScreen('whack-game');
 if(this.whackInterval)clearInterval(this.whackInterval);this.whackInterval=setInterval(()=>{this.whackTimeLeft--;const el=document.getElementById('whack-timer');if(el)el.textContent=this.whackTimeLeft;if(this.whackTimeLeft<=0){clearInterval(this.whackInterval);if(this.whackSpawnTimeout)clearTimeout(this.whackSpawnTimeout);this.hideAllMoles();setTimeout(()=>this.showArcadeResult('TIME UP!','Score: '+this.whackScore,'🔨',()=>this.startWhack()),300);}},1000);
 this.spawnMole();
 },
@@ -1715,7 +1828,7 @@ hideAllMoles(){document.querySelectorAll('.whack-hole').forEach(h=>{h.classList.
 whackMole(i){if(i!==this.whackActiveHole||this.whackTimeLeft<=0)return;this.whackScore++;document.getElementById('whack-score').textContent=this.whackScore;this.playSound('correct');this.vibrate(20);this.hideAllMoles();if(this.whackSpawnTimeout)clearTimeout(this.whackSpawnTimeout);this.whackSpawnTimeout=setTimeout(()=>this.spawnMole(),300);},
 
 /* ===== FLAPPY TAP ===== */
-startFlappy(){this.flappyBird={y:180,vy:0};this.flappyPipes=[];this.flappyScore=0;this.flappyRunning=true;document.getElementById('flappy-score').textContent='0';this.showScreen('flappy-game');
+startFlappy(){this.currentGameName='Flappy Tap';this.flappyBird={y:180,vy:0};this.flappyPipes=[];this.flappyScore=0;this.flappyRunning=true;document.getElementById('flappy-score').textContent='0';this.showScreen('flappy-game');
 const canvas=document.getElementById('flappy-canvas');
 this.flappyCanvasW=300;this.flappyCanvasH=400;
 this.setupCanvasDPI(canvas,this.flappyCanvasW,this.flappyCanvasH);
@@ -1753,7 +1866,7 @@ ctx.restore();
 },
 
 /* ===== TRIVIA QUIZ ===== */
-startTrivia(){this.triviaQuestions=this.shuffleArray([...this.triviaBank]).slice(0,10);this.triviaIndex=0;this.triviaScore=0;this.triviaAnswered=false;document.getElementById('trivia-score').textContent='0';this.showScreen('trivia-game');this.renderTriviaQuestion();},
+startTrivia(){this.currentGameName='Trivia Quiz';this.triviaQuestions=this.shuffleArray([...this.triviaBank]).slice(0,10);this.triviaIndex=0;this.triviaScore=0;this.triviaAnswered=false;document.getElementById('trivia-score').textContent='0';this.showScreen('trivia-game');this.renderTriviaQuestion();},
 renderTriviaQuestion(){const q=this.triviaQuestions[this.triviaIndex];document.getElementById('trivia-qnum').textContent=(this.triviaIndex+1)+'/'+this.triviaQuestions.length;document.getElementById('trivia-question').textContent=q.q;const optEl=document.getElementById('trivia-options');optEl.innerHTML='';this.triviaAnswered=false;
 q.options.forEach((opt,i)=>{const div=document.createElement('div');div.className='trivia-option';div.textContent=opt;div.addEventListener('click',()=>this.answerTrivia(i));optEl.appendChild(div);});
 },
@@ -1852,7 +1965,7 @@ pauseGame(){if(!this.gameRunning)return;this.gamePaused=true;document.getElement
 resumeGame(){this.gamePaused=false;document.getElementById('overlay-pause').classList.remove('active');const input=document.getElementById('game-input');if(this.settings.autofocus)input.focus();},
 confirmQuit(){this.gamePaused=true;document.getElementById('overlay-quit').classList.add('active');},
 hideOverlay(id){document.getElementById(id).classList.remove('active');if(id==='overlay-quit'){this.gamePaused=false;const input=document.getElementById('game-input');if(input&&this.settings.autofocus)input.focus();}},
-stopAllGameActivity(){this.gameRunning=false;this.gamePaused=false;this.mathRunning=false;this.levelModeActive=false;this.flappyRunning=false;this.tttGameOver=true;this.c4GameOver=true;this.mineOver=true;this.wordleOver=true;this.breakoutRunning=false;this.pongRunning=false;if(this.timerInterval)clearInterval(this.timerInterval);if(this.mathTimerInterval)clearInterval(this.mathTimerInterval);if(this.memoryTimerInterval)clearInterval(this.memoryTimerInterval);if(this.reactionTimeout)clearTimeout(this.reactionTimeout);if(this.seqtapTimerInterval)clearInterval(this.seqtapTimerInterval);if(this.wsTimerInterval)clearInterval(this.wsTimerInterval);if(this.snakeInterval)clearInterval(this.snakeInterval);if(this.whackInterval)clearInterval(this.whackInterval);if(this.whackSpawnTimeout)clearTimeout(this.whackSpawnTimeout);if(this.flappyRAF)cancelAnimationFrame(this.flappyRAF);if(this.anagramInterval)clearInterval(this.anagramInterval);if(this.stroopInterval)clearInterval(this.stroopInterval);if(this.breakoutRAF)cancelAnimationFrame(this.breakoutRAF);if(this.pongRAF)cancelAnimationFrame(this.pongRAF);document.getElementById('overlay-pause').classList.remove('active');document.getElementById('overlay-quit').classList.remove('active');document.getElementById('overlay-level-result').classList.remove('active');document.getElementById('overlay-arcade-result').classList.remove('active');},
+stopAllGameActivity(){this.gameRunning=false;this.gamePaused=false;this.mathRunning=false;this.levelModeActive=false;this.flappyRunning=false;this.tttGameOver=true;this.c4GameOver=true;this.mineOver=true;this.wordleOver=true;this.breakoutRunning=false;this.pongRunning=false;if(this.timerInterval)clearInterval(this.timerInterval);if(this.mathTimerInterval)clearInterval(this.mathTimerInterval);if(this.memoryTimerInterval)clearInterval(this.memoryTimerInterval);if(this.reactionTimeout)clearTimeout(this.reactionTimeout);if(this.seqtapTimerInterval)clearInterval(this.seqtapTimerInterval);if(this.wsTimerInterval)clearInterval(this.wsTimerInterval);if(this.snakeInterval)clearInterval(this.snakeInterval);if(this.whackInterval)clearInterval(this.whackInterval);if(this.whackSpawnTimeout)clearTimeout(this.whackSpawnTimeout);if(this.flappyRAF)cancelAnimationFrame(this.flappyRAF);if(this.anagramInterval)clearInterval(this.anagramInterval);if(this.stroopInterval)clearInterval(this.stroopInterval);if(this.breakoutRAF)cancelAnimationFrame(this.breakoutRAF);if(this.pongRAF)cancelAnimationFrame(this.pongRAF);document.getElementById('overlay-pause').classList.remove('active');document.getElementById('overlay-quit').classList.remove('active');document.getElementById('overlay-level-result').classList.remove('active');document.getElementById('overlay-arcade-result').classList.remove('active');document.getElementById('overlay-share').classList.remove('active');},
 quitToHome(){this.stopAllGameActivity();this.showScreen('home');},
 navTo(id){this.stopAllGameActivity();this.showScreen(id);},
 
@@ -1876,7 +1989,7 @@ gameOverEndless(){this.gameRunning=false;if(this.timerInterval)clearInterval(thi
 
 restartGame(){this.levelModeActive=false;this.startCountdown();},
 
-shareResult(){let text='';const timeUsed=(this.timeLimit-this.timeRemaining).toFixed(2);if(this.currentMode==='endless'){text='I typed '+this.endlessLetters+' letters in Endless Mode! Score: '+this.score+' Can you beat me?';}else if(this.currentMode==='words'||this.currentMode==='sentences'){text='I typed '+this.wordsTyped+' '+(this.currentMode==='sentences'?'sentences':'words')+' in '+this.getModeName()+'! Score: '+this.score+' Can you beat me?';}else{text='I completed the A-Z '+this.getModeName()+' Challenge in '+timeUsed+' seconds! Score: '+this.score+' Can you beat me?';}if(navigator.share){navigator.share({title:'A-Z Arcade',text:text});}else{navigator.clipboard.writeText(text).then(()=>{alert('Result copied to clipboard!');}).catch(()=>{alert(text);});}},
+shareResult(){let scoreText='';const timeUsed=(this.timeLimit-this.timeRemaining).toFixed(2);if(this.currentMode==='endless'){scoreText=this.endlessLetters+' letters (Score: '+this.score+')';}else if(this.currentMode==='words'||this.currentMode==='sentences'){scoreText=this.wordsTyped+' '+(this.currentMode==='sentences'?'sentences':'words')+' (Score: '+this.score+')';}else{scoreText=timeUsed+'s, Score: '+this.score;}this.openShareModal('Typing Challenge - '+this.getModeName(),scoreText);},
 
 /* ===== STATS / SETTINGS ===== */
 updateStatsUI(){const s=this.stats;document.getElementById('stat-played').textContent=s.gamesPlayed;document.getElementById('stat-won').textContent=s.gamesWon;document.getElementById('stat-lost').textContent=s.gamesLost;const winRate=s.gamesPlayed>0?((s.gamesWon/s.gamesPlayed)*100).toFixed(1):0;document.getElementById('stat-winrate').textContent=winRate+'%';document.getElementById('stat-best').textContent=s.bestScore;document.getElementById('stat-fastest').textContent=s.fastestTime!==null?s.fastestTime.toFixed(2)+'s':'—';document.getElementById('stat-accuracy').textContent=s.bestAccuracy.toFixed(1)+'%';const avgTime=s.totalWins>0?(s.totalTime/s.totalWins).toFixed(2)+'s':'—';document.getElementById('stat-avg').textContent=avgTime;document.getElementById('stat-classic').textContent=s.classicWins;document.getElementById('stat-reverse').textContent=s.reverseWins;document.getElementById('stat-random').textContent=s.randomWins;document.getElementById('stat-speed').textContent=s.speedWins;document.getElementById('stat-endless').textContent=s.endlessBest;document.getElementById('stat-words').textContent=s.wordsBest;document.getElementById('stat-numbers').textContent=s.numbersWins||0;document.getElementById('stat-symbols').textContent=s.symbolsWins||0;document.getElementById('stat-sentences').textContent=s.sentencesBest||0;
